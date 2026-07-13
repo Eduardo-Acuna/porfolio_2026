@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduardo Acuño — Desarrollador Web/Software</title>
+<meta name="description" content="Portafolio de Eduardo Acuño G., desarrollador web y software.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav-wrap">
+  <nav class="nav">
+    <a href="#inicio" class="logo">
+      <img src="assets/img/logo.png" alt="Eduardo Acuño" class="logo-img">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#certificados">Certificados</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section id="inicio" class="hero">
+    <div class="hero-card">
+      <div class="hero-text">
+        <h1 class="sr-only">Hola, soy Eduardo Acuño G. — Desarrollador Web/Software</h1>
+        <img src="assets/img/inicio1.png" alt="Hola, soy Eduardo Acuño G." class="hero-name-img">
+        <p class="role-tag">&lt;DESARROLLADOR WEB/SOFTWARE&gt;</p>
+        <div class="hero-actions">
+          <a href="assets/CV-Eduardo-Acuno.pdf" class="btn-primary" download>DESCARGAR CV</a>
+          <div class="socials">
+            <a href="mailto:eduardo@example.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M12 13c0-1.5 1-2 2-2s2 .5 2 2v3"/></svg>
+            </a>
+            <a href="https://instagram.com/tu-usuario" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <img src="assets/img/inicio2.png" alt="Ilustración de Eduardo con su laptop y su perro en skate" class="hero-illustration-img">
+      </div>
+    </div>
+
+    <!-- tira de iconos de línea (separador) -->
+    <div class="doodle-marquee" aria-hidden="true" id="doodleMarquee1"></div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="skills">
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h2 class="block-title">Habilidades técnicas</h2>
+        <div class="chip-box">
+          <span class="chip"><i class="devicon-html5-plain colored"></i>HTML</span>
+          <span class="chip"><i class="devicon-css3-plain colored"></i>CSS</span>
+          <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+          <span class="chip"><i class="devicon-react-original colored"></i>React JS</span>
+          <span class="chip"><i class="devicon-nodejs-plain colored"></i>Node JS</span>
+          <span class="chip"><i class="devicon-angularjs-plain colored"></i>Angular</span>
+          <span class="chip"><i class="devicon-vuejs-plain colored"></i>Vue JS</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h2 class="block-title">Herramientas que utilizo</h2>
+        <div class="chip-box">
+          <span class="chip"><i class="devicon-git-plain colored"></i>Git</span>
+          <span class="chip"><i class="devicon-docker-plain colored"></i>Docker</span>
+          <span class="chip"><i class="devicon-drupal-plain colored"></i>Drupal</span>
+          <span class="chip"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+          <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CERTIFICADOS ================= -->
+  <section id="certificados" class="certificados">
+    <h2 class="section-title">Certificaciones</h2>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" id="certPrev" aria-label="Anterior">&#8249;</button>
+      <div class="carousel-track" id="certTrack">
+        <article class="cert-card">
+          <div class="cert-thumb">UniNorte</div>
+          <h3>Curso Profesional de JavaScript</h3>
+          <p class="cert-meta">Código Facilito · Nov. 2022</p>
+        </article>
+        <article class="cert-card">
+          <div class="cert-thumb">UniNorte</div>
+          <h3>Redacción Científica</h3>
+          <p class="cert-meta">Universidad del Norte · Feb. 2023</p>
+        </article>
+        <article class="cert-card">
+          <div class="cert-thumb">Facilito</div>
+          <h3>Fundamentos de React</h3>
+          <p class="cert-meta">Código Facilito · 2023</p>
+        </article>
+        <article class="cert-card">
+          <div class="cert-thumb">Coursera</div>
+          <h3>Bases de datos con PostgreSQL</h3>
+          <p class="cert-meta">Coursera · 2023</p>
+        </article>
+        <article class="cert-card">
+          <div class="cert-thumb">Docker</div>
+          <h3>Docker para desarrolladores</h3>
+          <p class="cert-meta">Platzi · 2024</p>
+        </article>
+      </div>
+      <button class="carousel-btn next" id="certNext" aria-label="Siguiente">&#8250;</button>
+    </div>
+
+    <div class="doodle-marquee" aria-hidden="true" id="doodleMarquee2"></div>
+  </section>
+
+  <!-- ================= PROYECTOS ================= -->
+  <section id="proyectos" class="proyectos">
+    <h2 class="section-title">Proyectos</h2>
+    <div class="proyectos-grid">
+      <article class="proyecto-card">
+        <div class="proyecto-img ph-1"></div>
+        <h3>Nombre del proyecto 1</h3>
+        <p>Breve descripción de qué resolviste y con qué stack.</p>
+        <a href="#" class="link-arrow">Ver proyecto →</a>
+      </article>
+      <article class="proyecto-card">
+        <div class="proyecto-img ph-2"></div>
+        <h3>Nombre del proyecto 2</h3>
+        <p>Breve descripción de qué resolviste y con qué stack.</p>
+        <a href="#" class="link-arrow">Ver proyecto →</a>
+      </article>
+      <article class="proyecto-card">
+        <div class="proyecto-img ph-3"></div>
+        <h3>Nombre del proyecto 3</h3>
+        <p>Breve descripción de qué resolviste y con qué stack.</p>
+        <a href="#" class="link-arrow">Ver proyecto →</a>
+      </article>
+      <article class="proyecto-card">
+        <div class="proyecto-img ph-4"></div>
+        <h3>Nombre del proyecto 4</h3>
+        <p>Breve descripción de qué resolviste y con qué stack.</p>
+        <a href="#" class="link-arrow">Ver proyecto →</a>
+      </article>
+      <article class="proyecto-card">
+        <div class="proyecto-img ph-5"></div>
+        <h3>Nombre del proyecto 5</h3>
+        <p>Breve descripción de qué resolviste y con qué stack.</p>
+        <a href="#" class="link-arrow">Ver proyecto →</a>
+      </article>
+      <article class="proyecto-card">
+        <div class="proyecto-img ph-6"></div>
+        <h3>Nombre del proyecto 6</h3>
+        <p>Breve descripción de qué resolviste y con qué stack.</p>
+        <a href="#" class="link-arrow">Ver proyecto →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE MI ================= -->
+  <section id="sobre-mi" class="sobre-mi">
+    <h2 class="section-title center">Sobre mí…</h2>
+    <div class="sobre-grid">
+      <div class="sobre-texto">
+        <p>Actualmente soy estudiante de ingeniería en informática en la Facultad Politécnica de la Universidad Nacional de Asunción. Mis intereses se centran en diseñar experiencias, momentos y productos significativos que provoquen emociones positivas en las personas.</p>
+        <p>Nací en San Lorenzo y crecí en Asunción. Cuando no estoy diseñando o fabricando cosas, me gusta salir a patinar, buscar spots y probar nuevos trucos. En mi tiempo libre suelo pintar y dibujar. Aquí hay algunos de mis trabajos favoritos.</p>
+      </div>
+      <div class="polaroid">
+        <div class="polaroid-img"></div>
+        <p class="polaroid-caption">~ impulsado por la curiosidad</p>
+      </div>
+    </div>
+
+    <div class="sobre-grid reverse">
+      <div class="polaroid">
+        <div class="polaroid-img"></div>
+        <p class="polaroid-caption">~ impulsado por la curiosidad</p>
+      </div>
+      <div class="sobre-texto">
+        <h3 class="mini-title">Mi ancla para el área TIC</h3>
+        <p>Mis padres son del interior. Cuando tenían veintipocos años se conocieron en la capital. Allí construyeron una vida y nos criaron a mí y a mis dos hermanos. Su determinación me inspira directamente, cultivando un profundo aprecio por la perseverancia y fomentando la ingeniosidad y la comodidad ante lo desconocido. Estos valores ahora fundamentan mi enfoque en los problemas de diseño.</p>
+      </div>
+    </div>
+
+    <div class="galeria">
+      <div class="galeria-item"></div>
+      <div class="galeria-item"></div>
+      <div class="galeria-item"></div>
+      <div class="galeria-item"></div>
+      <div class="galeria-item"></div>
+      <div class="galeria-item"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">&#8963;</button>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-title">Navegación</p>
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#certificados">Certificados</a>
+      <a href="#sobre-mi">Sobre mí</a>
+    </div>
+    <div>
+      <p class="footer-title">Conectemos</p>
+      <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:eduardo@example.com">Email</a>
+    </div>
+    <div>
+      <p class="footer-title">Créditos</p>
+      <p class="footer-text">© 2026 Eduardo Acuño G. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
