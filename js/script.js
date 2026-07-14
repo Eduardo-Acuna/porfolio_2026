@@ -1,52 +1,254 @@
-// ============ SEPARADOR DE ÍCONOS DE LÍNEA ============
-const doodleIcons = {
-  skate: `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 20c8 4 20 4 28 0"/><circle cx="12" cy="26" r="3"/><circle cx="28" cy="26" r="3"/></svg>`,
-  bird: `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24c4-10 12-14 18-12-2 1-3 3-2 5 6 0 9 3 10 6-3-1-6-1-8 0 1 3-1 6-5 6-6 0-10-2-13-5Z"/><circle cx="21" cy="17" r="1"/></svg>`,
-  coffee: `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 16h18v9a6 6 0 0 1-6 6h-6a6 6 0 0 1-6-6z"/><path d="M27 18h2a4 4 0 0 1 0 8h-2"/><path d="M14 10c0 2-2 2-2 4M20 10c0 2-2 2-2 4"/></svg>`,
-  dog: `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 26c0-7 4-11 9-11s9 4 9 11"/><circle cx="26" cy="12" r="4"/><path d="M23 8l-3-4M29 8l2-5"/><circle cx="27" cy="11" r=".6" fill="currentColor"/></svg>`
-};
+// ============ SCRIPT PRINCIPAL DEL PORTAFOLIO ============
 
-function buildDoodleTrack(){
-  const order = ['skate','bird','coffee','dog'];
-  const items = [...order, ...order, ...order] // x3 para loop parejo
-    .map(key => `<span class="doodle">${doodleIcons[key]}</span>`).join('');
-  return `<div class="doodle-track">${items}</div>`;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // ============ MENÚ MÓVIL ============
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
 
-['doodleMarquee1', 'doodleMarquee2'].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.innerHTML = buildDoodleTrack();
-});
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
 
-// ============ MENÚ MÓVIL ============
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
-navToggle?.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
+  // ============ CARRUSEL DE CERTIFICADOS ============
+  const track = document.getElementById('certTrack');
+  const prevBtn = document.getElementById('certPrev');
+  const nextBtn = document.getElementById('certNext');
 
-navLinks?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+  function scrollByCard(direction, count = 4){
+    if(!track) return;
+    const card = track.querySelector('.cert-card');
+    if (!card) return;
+    const gap = 20;
+    const distance = (card.offsetWidth + gap) * count;
+    const targetScroll = track.scrollLeft + (direction * distance);
+    track.scrollTo({ left: targetScroll, behavior: 'smooth' });
+  }
 
-// ============ CARRUSEL DE CERTIFICADOS ============
-const track = document.getElementById('certTrack');
-const prevBtn = document.getElementById('certPrev');
-const nextBtn = document.getElementById('certNext');
+  if (prevBtn) prevBtn.addEventListener('click', () => scrollByCard(-1));
+  if (nextBtn) nextBtn.addEventListener('click', () => scrollByCard(1));
 
-function scrollByCard(direction){
-  if(!track) return;
-  const card = track.querySelector('.cert-card');
-  const gap = 20;
-  const distance = card ? card.offsetWidth + gap : 280;
-  track.scrollBy({ left: direction * distance, behavior: 'smooth' });
-}
+  if (track) {
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); scrollByCard(-1, 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); scrollByCard(1, 1); }
+    });
+  }
 
-prevBtn?.addEventListener('click', () => scrollByCard(-1));
-nextBtn?.addEventListener('click', () => scrollByCard(1));
+  // ============ SCROLL TO TOP ============
+  const scrollBtn = document.getElementById('scrollTop');
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-// ============ SCROLL TO TOP ============
-document.getElementById('scrollTop')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.addEventListener('scroll', () => {
+      const shouldShow = window.scrollY > 300;
+      scrollBtn.style.opacity = shouldShow ? '1' : '0.4';
+      scrollBtn.style.transform = shouldShow 
+        ? 'translateX(-50%) scale(1)' 
+        : 'translateX(-50%) scale(0.85)';
+    });
+  }
+
+  // ============ NAV LINKS ACTIVE STATE ============
+  const sections = document.querySelectorAll('section[id]');
+  const navLinkItems = document.querySelectorAll('.nav-links a');
+
+  if (sections.length && navLinkItems.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinkItems.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('active', isActive);
+          });
+        }
+      });
+    }, { 
+      threshold: 0.3,
+      rootMargin: '-20px 0px -20px 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  // ============ ANIMACIÓN DE ENTRADA ============
+  function animateOnScroll(selector, delay = 0.08) {
+    const elements = document.querySelectorAll(selector);
+    if (!elements.length || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+
+    elements.forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(25px)';
+      el.style.transition = `opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * delay}s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * delay}s`;
+      observer.observe(el);
+    });
+  }
+
+  animateOnScroll('.proyecto-card', 0.06);
+  animateOnScroll('.cert-card', 0.05);
+  animateOnScroll('.galeria-item', 0.04);
+  animateOnScroll('.skill-block', 0.1);
+  animateOnScroll('.sobre-texto, .polaroid', 0.1);
+  animateOnScroll('.section-title', 0);
+  animateOnScroll('.footer-grid > div', 0.08);
+
+  // ============ ENTRADA INICIAL DEL HERO ============
+  const heroEls = document.querySelectorAll('.hero-name-img, .role-tag, .hero-actions, .hero-illustration-img');
+  heroEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = `opacity 0.7s cubic-bezier(0.4,0,0.2,1) ${0.15 + i * 0.12}s, transform 0.7s cubic-bezier(0.4,0,0.2,1) ${0.15 + i * 0.12}s`;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+  });
+
+  // ============ BARRA DE PROGRESO DE SCROLL ============
+  const progressBar = document.getElementById('scrollProgressBar');
+  if (progressBar) {
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = `${pct}%`;
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+  }
+
+  // ============ TYPING EFFECT PARA EL ROL ============
+  const roleTag = document.querySelector('.role-tag');
+  if (roleTag) {
+    const prefix = 'DESARROLLADOR ';
+    const words = ['WEB', 'APP', 'SOFTWARE'];
+    let currentIndex = 0;
+    let isDeleting = false;
+    let charIndex = 0;
+
+    function typeEffect() {
+      const fullWord = words[currentIndex];
+
+      if (isDeleting) {
+        charIndex--;
+      } else {
+        charIndex++;
+      }
+
+      const currentWord = fullWord.substring(0, charIndex);
+      roleTag.innerHTML = `&lt;${prefix}${currentWord}&gt;`;
+
+      let speed = isDeleting ? 40 : 70;
+
+      if (!isDeleting && charIndex === fullWord.length) {
+        speed = 1400;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        currentIndex = (currentIndex + 1) % words.length;
+        speed = 400;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    // Iniciar después de un breve delay
+    setTimeout(typeEffect, 1000);
+  }
+
+  // ============ PARALLAX SUAVE EN HERO ============
+  const heroIllustration = document.querySelector('.hero-illustration-img');
+  if (heroIllustration && window.innerWidth > 760) {
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      heroIllustration.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+  }
+
+  // ============ MODAL DE CERTIFICADOS ============
+  const certModal = document.getElementById('certModal');
+  const certModalImg = document.getElementById('certModalImg');
+  const certModalClose = document.getElementById('certModalClose');
+  const certLinks = document.querySelectorAll('.cert-card .link-arrow');
+
+  function openCertModal(src, alt){
+    if (!certModal || !certModalImg) return;
+    certModalImg.src = src;
+    certModalImg.alt = alt || 'Certificado';
+    certModal.classList.add('open');
+    certModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCertModal(){
+    if (!certModal) return;
+    certModal.classList.remove('open');
+    certModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  certLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = link.closest('.cert-card');
+      const thumbImg = card ? card.querySelector('.cert-thumb img') : null;
+      const src = link.getAttribute('href');
+      const alt = thumbImg ? thumbImg.alt : 'Certificado';
+      openCertModal(src, alt);
+    });
+  });
+
+  if (certModalClose) certModalClose.addEventListener('click', closeCertModal);
+  if (certModal) {
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeCertModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCertModal();
+  });
+
+  // ============ CONTADOR DE PROYECTOS ============
+  const proyectosSection = document.querySelector('#proyectos .section-title');
+  if (proyectosSection) {
+    const count = document.querySelectorAll('.proyecto-card').length;
+    const span = document.createElement('span');
+    span.style.cssText = `
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--mustard);
+      margin-left: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    `;
+    span.textContent = `(${count} proyectos)`;
+    proyectosSection.appendChild(span);
+  }
 });
