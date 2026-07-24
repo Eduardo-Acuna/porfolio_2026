@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduardo Acuño — Desarrollador Web/Software</title>
+  <title>Eduardo Acuña | Desarrollador</title>
+<!-- Para navegadores modernos -->
+  <link rel="icon" type="image/webp" href="assets/img/pajaro_icono.webp">
+<!-- Para navegadores antiguos (fallback) -->
+<link rel="icon" href="assets/img/pajaro_icono.ico" sizes="any">
+
   <meta name="description" content="Portafolio de Eduardo Acuño G., desarrollador web y software.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,242 +24,387 @@
   <header class="nav-wrap">
     <nav class="nav">
       <a href="#inicio" class="logo">
-        <img src="assets/img/logo.png" alt="Eduardo Acuño" class="logo-img">
+        <img src="assets/img/logo.webp" alt="Eduardo Acuño" class="logo-img">
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#certificados">Certificados</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- ================= HERO ================= -->
-    <section id="inicio" class="hero">
-      <div class="hero-card">
-        <div class="hero-text">
-          <h1 class="sr-only">Hola, soy Eduardo Acuño G. — Desarrollador Web/Software</h1>
-          <img src="assets/img/inicio1.png" alt="Hola, soy Eduardo Acuño G." class="hero-name-img">
-          <p class="role-tag">&lt;DESARROLLADOR WEB&gt;</p>
-          <div class="hero-actions">
-            <a href="assets/CV-Eduardo-Acuno.pdf" class="btn-primary" download>DESCARGAR CV</a>
-            <div class="socials">
-              <a href="mailto:eduardo@example.com" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-              </a>
-              <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M12 13c0-1.5 1-2 2-2s2 .5 2 2v3"/></svg>
-              </a>
-              <a href="https://instagram.com/tu-usuario" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="hero-illustration">
-          <img src="assets/img/inicio2.png" alt="Ilustración de Eduardo con su laptop y su perro en skate" class="hero-illustration-img">
-        </div>
+
+<!-- ============ HERO CON FONDO ============ -->
+<section id="inicio" class="hero" aria-label="Presentación">
+  
+  <!-- FONDO DE LA SECCIÓN -->
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <!-- WebP para navegadores modernos -->
+      <source srcset="assets/img/fondo2.png" type="image/webp">
+      <!-- Fallback JPG para navegadores viejos -->
+      <img src="assets/img/fondo1.png" alt="" loading="eager">
+    </picture>
+  </div>
+
+  <!-- CONTENIDO DEL HERO -->
+  <div class="hero-card">
+    <div class="hero-text">
+      <h1 class="sr-only">Hola, soy Eduardo Acuño G. — Desarrollador Web/Software</h1>
+      <picture>
+        <source srcset="assets/img/inicio1.webp" type="image/webp">
+        <img src="assets/img/inicio1.png" alt="Hola, soy Eduardo Acuño G." class="hero-name-img" width="480" height="auto" loading="eager">
+      </picture>
+      <p class="role-tag" aria-live="polite">&lt;DESARROLLADOR WEB&gt;</p>
+      <div class="hero-actions">
+        <a href="assets/CV-Eduardo-Acuno.pdf" class="btn-primary" download aria-label="Descargar CV en PDF">DESCARGAR CV</a>
+<div class="socials">
+  <!-- WhatsApp -->
+  <a href="https://wa.me/tu-numero" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+  <!-- GitHub -->
+  <a href="https://github.com/tu-usuario" target="_blank" rel="noopener" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+  </a>
+  <!-- LinkedIn -->
+  <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+  </a>
+</div>
       </div>
-    </section>
+    </div>
+    <div class="hero-illustration">
+      <picture>
+        <source srcset="assets/img/inicio2.webp" type="image/webp">
+        <img src="assets/img/inicio2.png" alt="Ilustración de Eduardo con su laptop y su perro en skate" class="hero-illustration-img" width="380" height="auto" loading="eager">
+      </picture>
+    </div>
+  </div>
+</section>
+
 
 <!-- ================= HABILIDADES + HERRAMIENTAS + CERTIFICADOS (CARRUSEL) ================= -->
+<!-- ================= HABILIDADES + HERRAMIENTAS + CERTIFICADOS ================= -->
 <section id="certificados" class="skills-certificados">
 
   <div class="skills-certificados-grid">
     
     <!-- HABILIDADES TÉCNICAS -->
-    <div class="skill-block">
+    <div class="skill-block card-container">
       <h3 class="block-title">Habilidades técnicas</h3>
       <div class="chip-box">
-        <span class="chip" aria-label="HTML"><i class="devicon-html5-plain colored"></i></span>
-        <span class="chip" aria-label="CSS"><i class="devicon-css3-plain colored"></i></span>
+        <span class="chip" aria-label="HTML5"><i class="devicon-html5-plain colored"></i></span>
+        <span class="chip" aria-label="CSS3"><i class="devicon-css3-plain colored"></i></span>
         <span class="chip" aria-label="JavaScript"><i class="devicon-javascript-plain colored"></i></span>
-        <span class="chip" aria-label="React JS"><i class="devicon-react-original colored"></i></span>
-        <span class="chip" aria-label="Node JS"><i class="devicon-nodejs-plain colored"></i></span>
+        <span class="chip" aria-label="TypeScript"><i class="devicon-typescript-plain colored"></i></span>
+        <span class="chip" aria-label="Java"><i class="devicon-java-plain colored"></i></span>
+        <span class="chip" aria-label="PHP"><i class="devicon-php-plain colored"></i></span>
         <span class="chip" aria-label="Angular"><i class="devicon-angularjs-plain colored"></i></span>
-        <span class="chip" aria-label="Vue JS"><i class="devicon-vuejs-plain colored"></i></span>
+        <span class="chip" aria-label="Laravel"><i class="devicon-laravel-plain colored"></i></span>
       </div>
     </div>
 
     <!-- HERRAMIENTAS -->
-    <div class="skill-block">
-      <h3 class="block-title">Herramientas</h3>
+    <div class="skill-block card-container">
+      <h3 class="block-title">Herramientas que utilizo</h3>
       <div class="chip-box">
         <span class="chip" aria-label="Git"><i class="devicon-git-plain colored"></i></span>
+        <span class="chip" aria-label="GitHub"><i class="devicon-github-original colored"></i></span>
+        <span class="chip" aria-label="Visual Studio Code"><i class="devicon-vscode-plain colored"></i></span>
+        <span class="chip" aria-label="Figma"><i class="devicon-figma-plain colored"></i></span>
+        <span class="chip" aria-label="Bootstrap"><i class="devicon-bootstrap-plain colored"></i></span>
         <span class="chip" aria-label="Docker"><i class="devicon-docker-plain colored"></i></span>
-        <span class="chip" aria-label="Drupal"><i class="devicon-drupal-plain colored"></i></span>
-        <span class="chip" aria-label="PostgreSQL"><i class="devicon-postgresql-plain colored"></i></span>
-        <span class="chip" aria-label="PHP"><i class="devicon-php-plain colored"></i></span>
+        <span class="chip" aria-label="MySQL"><i class="devicon-mysql-plain colored"></i></span>
+        <span class="chip" aria-label="pgAdmin"><i class="devicon-postgresql-plain colored"></i></span>
       </div>
     </div>
 
-    <!-- CERTIFICADOS (CARRUSEL) - ocupa toda la fila inferior -->
-    <div class="skill-block cert-block">
-      <h3 class="block-title">Certificaciones</h3>
-      <div class="carousel-wrap">
-        <button class="carousel-btn prev" id="certPrev" aria-label="Anterior">‹</button>
-        <div class="carousel-track" id="certTrack">
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Programacion_Java_Senior.webp" alt="Programación Java Senior" loading="lazy">
-            </div>
-            <h4>Programación Java Senior</h4>
-            <p class="cert-meta">SNPP · 24 de Octubre de 2024</p>
-            <a href="assets/img/certificados/Programacion_Java_Senior.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Programacion_PHP.webp" alt="Programación Web Backend PHP" loading="lazy">
-            </div>
-            <h4>Programación Web Backend PHP</h4>
-            <p class="cert-meta">SNPP · 11 de Marzo de 2024</p>
-            <a href="assets/img/certificados/Programacion_PHP.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" alt="Curso de Python" loading="lazy">
-            </div>
-            <h4>Curso de Python</h4>
-            <p class="cert-meta">Student Chapter IEEE ITBA · Mayo 2024</p>
-            <a href="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/ORACLE_SQL.webp" alt="Oracle: SQL y Desarrollo en PL/SQL" loading="lazy">
-            </div>
-            <h4>Oracle: SQL y Desarrollo en PL/SQL</h4>
-            <p class="cert-meta">Facultad Politécnica - UNA · 21 de Febrero 2024</p>
-            <a href="assets/img/certificados/ORACLE_SQL.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Master_Class_de_Java.webp" alt="Conquistando el Backend: Master Class de Java" loading="lazy">
-            </div>
-            <h4>Conquistando el Backend: Master Class de Java</h4>
-            <p class="cert-meta">Talleres Donweb · Agosto 2023</p>
-            <a href="assets/img/certificados/Master_Class_de_Java.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Taller-Redaccion-Cientifica.webp" alt="Redacción Científica" loading="lazy">
-            </div>
-            <h4>Redacción Científica</h4>
-            <p class="cert-meta">Universidad del Norte · 15 de Febrero de 2023</p>
-            <a href="assets/img/certificados/Taller-Redaccion-Cientifica.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Gestion_de_servicios_en_la_nube.webp" alt="Gestión de Servicios en la Nube" loading="lazy">
-            </div>
-            <h4>Gestión de Servicios en la Nube</h4>
-            <p class="cert-meta">MITIC · 1 de Febrero de 2023</p>
-            <a href="assets/img/certificados/Gestion_de_servicios_en_la_nube.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/LENGUAJE_C.webp" alt="Lenguaje de Programación C" loading="lazy">
-            </div>
-            <h4>Lenguaje de Programación C</h4>
-            <p class="cert-meta">SNPP · 28 de Diciembre de 2023</p>
-            <a href="assets/img/certificados/LENGUAJE_C.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" alt="Curso Profesional Desarrollo WEB" loading="lazy">
-            </div>
-            <h4>Curso Profesional Desarrollo WEB</h4>
-            <p class="cert-meta">Código Facilito · 20 de Junio de 2022</p>
-            <a href="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Curso_CSS.webp" alt="Curso de CSS" loading="lazy">
-            </div>
-            <h4>Curso de CSS</h4>
-            <p class="cert-meta">Código Facilito · 10 de Junio de 2022</p>
-            <a href="assets/img/certificados/Curso_CSS.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Curso_de_GIT_GITHUB.webp" alt="Curso GIT Y GITHUB" loading="lazy">
-            </div>
-            <h4>Curso GIT Y GITHUB</h4>
-            <p class="cert-meta">Club de Programación - FIUNA · Julio 2022</p>
-            <a href="assets/img/certificados/Curso_de_GIT_GITHUB.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" alt="Curso Profesional de Base de Datos" loading="lazy">
-            </div>
-            <h4>Curso Profesional de Base de Datos</h4>
-            <p class="cert-meta">Código Facilito · 3 de Julio de 2022</p>
-            <a href="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Seguridad_en_APIs.webp" alt="Webinar: Seguridad en APIs" loading="lazy">
-            </div>
-            <h4>Webinar: Seguridad en APIs</h4>
-            <p class="cert-meta">MITIC · 27 de Octubre de 2022</p>
-            <a href="assets/img/certificados/Seguridad_en_APIs.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Gestion_de_Proyectos-FACEN.webp" alt="Introducción a la Gestión de Proyectos" loading="lazy">
-            </div>
-            <h4>Introducción a la Gestión de Proyectos</h4>
-            <p class="cert-meta">FACEN - UNA · 20 de Setiembre de 2022</p>
-            <a href="assets/img/certificados/Gestion_de_Proyectos-FACEN.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/metaverso_FPUNA.webp" alt="Metaverso" loading="lazy">
-            </div>
-            <h4>Metaverso</h4>
-            <p class="cert-meta">Facultad Politécnica - UNA · 15 de Noviembre de 2022</p>
-            <a href="assets/img/certificados/metaverso_FPUNA.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" alt="Curso Profesional de JavaScript" loading="lazy">
-            </div>
-            <h4>Curso Profesional de JavaScript</h4>
-            <p class="cert-meta">Código Facilito · 17 de Noviembre de 2022</p>
-            <a href="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/DISENO_WEB_BOOTSTRAP.webp" alt="Diseño Web Bootstrap" loading="lazy">
-            </div>
-            <h4>Diseño Web Bootstrap</h4>
-            <p class="cert-meta">SNPP · 8 de Abril de 2022</p>
-            <a href="assets/img/certificados/DISENO_WEB_BOOTSTRAP.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/HTML_5.webp" alt="HTML 5" loading="lazy">
-            </div>
-            <h4>HTML 5</h4>
-            <p class="cert-meta">SNPP · 8 de Abril de 2022</p>
-            <a href="assets/img/certificados/HTML_5.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-thumb">
-              <img src="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" alt="Marketing Digital y Comercio Electrónico" loading="lazy">
-            </div>
-            <h4>Marketing Digital y Comercio Electrónico</h4>
-            <p class="cert-meta">SNPP · 23 de Mayo de 2022</p>
-            <a href="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-          </article>
+<!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
+<!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
+<!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
+<div class="skill-block cert-block-wrap card-container">
+  <h3 class="block-title">Certificaciones</h3>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" id="certPrev" aria-label="Anterior">‹</button>
+    <div class="carousel-track" id="certTrack">
+      
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Programación_Java_Senior.webp" alt="Programación Java Senior" loading="lazy">
         </div>
-        <button class="carousel-btn next" id="certNext" aria-label="Siguiente">›</button>
-      </div>
+        <div class="cert-content-info">
+          <h4>Programación Java Senior</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">SNPP</span>
+            <span class="cert-date">24 de Octubre de 2024</span>
+          </div>
+          <a href="assets/img/certificados/Programación_Java_Senior.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Programacion_PHP.webp" alt="Programación Web Backend PHP" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Programación Web Backend PHP</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">SNPP</span>
+            <span class="cert-date">11 de Marzo de 2024</span>
+          </div>
+          <a href="assets/img/certificados/Programacion_PHP.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" alt="Curso de Python" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Curso de Python</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Student Chapter IEEE ITBA</span>
+            <span class="cert-date">Mayo 2024</span>
+          </div>
+          <a href="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/ORACLE_SQL.webp" alt="Oracle: SQL y Desarrollo en PL/SQL" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Oracle: SQL y Desarrollo en PL/SQL</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Facultad Politécnica - UNA</span>
+            <span class="cert-date">21 de Febrero 2024</span>
+          </div>
+          <a href="assets/img/certificados/ORACLE_SQL.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Master_Class_de_Java.webp" alt="Conquistando el Backend: Master Class de Java" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Conquistando el Backend: Master Class de Java</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Talleres Donweb</span>
+            <span class="cert-date">Agosto 2023</span>
+          </div>
+          <a href="assets/img/certificados/Master_Class_de_Java.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Taller-Redaccion-Cientifica.webp" alt="Redacción Científica" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Redacción Científica</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Universidad del Norte</span>
+            <span class="cert-date">15 de Febrero de 2023</span>
+          </div>
+          <a href="assets/img/certificados/Taller-Redaccion-Cientifica.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" alt="Gestión de Servicios en la Nube" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Gestión de Servicios en la Nube</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">MITIC</span>
+            <span class="cert-date">1 de Febrero de 2023</span>
+          </div>
+          <a href="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/LENGUAJE_C.webp" alt="Lenguaje de Programación C" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Lenguaje de Programación C</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">SNPP</span>
+            <span class="cert-date">28 de Diciembre de 2023</span>
+          </div>
+          <a href="assets/img/certificados/LENGUAJE_C.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" alt="Curso Profesional Desarrollo WEB" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Curso Profesional Desarrollo WEB</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Código Facilito</span>
+            <span class="cert-date">20 de Junio de 2022</span>
+          </div>
+          <a href="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Curso_CSS.webp" alt="Curso de CSS" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Curso de CSS</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Código Facilito</span>
+            <span class="cert-date">10 de Junio de 2022</span>
+          </div>
+          <a href="assets/img/certificados/Curso_CSS.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Curso_de_GIT_GITHUB.webp" alt="Curso GIT Y GITHUB" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Curso GIT Y GITHUB</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Club de Programación - FIUNA</span>
+            <span class="cert-date">Julio 2022</span>
+          </div>
+          <a href="assets/img/certificados/Curso_de_GIT_GITHUB.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" alt="Curso Profesional de Base de Datos" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Curso Profesional de Base de Datos</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Código Facilito</span>
+            <span class="cert-date">3 de Julio de 2022</span>
+          </div>
+          <a href="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Seguridad_en_APIs.webp" alt="Webinar: Seguridad en APIs" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Webinar: Seguridad en APIs</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">MITIC</span>
+            <span class="cert-date">27 de Octubre de 2022</span>
+          </div>
+          <a href="assets/img/certificados/Seguridad_en_APIs.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" alt="Introducción a la Gestión de Proyectos" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Introducción a la Gestión de Proyectos</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">FACEN - UNA</span>
+            <span class="cert-date">20 de Setiembre de 2022</span>
+          </div>
+          <a href="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/metaverso_FPUNA.webp" alt="Metaverso" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Metaverso</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Facultad Politécnica - UNA</span>
+            <span class="cert-date">15 de Noviembre de 2022</span>
+          </div>
+          <a href="assets/img/certificados/metaverso_FPUNA.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" alt="Curso Profesional de JavaScript" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Curso Profesional de JavaScript</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">Código Facilito</span>
+            <span class="cert-date">Nov. 2022</span>
+          </div>
+          <a href="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" alt="Diseño Web Bootstrap" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Diseño Web Bootstrap</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">SNPP</span>
+            <span class="cert-date">8 de Abril de 2022</span>
+          </div>
+          <a href="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/HTML_5.webp" alt="HTML 5" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>HTML 5</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">SNPP</span>
+            <span class="cert-date">8 de Abril de 2022</span>
+          </div>
+          <a href="assets/img/certificados/HTML_5.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-thumb">
+          <img src="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" alt="Marketing Digital y Comercio Electrónico" loading="lazy">
+        </div>
+        <div class="cert-content-info">
+          <h4>Marketing Digital y Comercio Electrónico</h4>
+          <div class="cert-meta-wrap">
+            <span class="cert-date">SNPP</span>
+            <span class="cert-date">23 de Mayo de 2022</span>
+          </div>
+          <a href="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+        </div>
+      </article>
+
     </div>
+    <button class="carousel-btn next" id="certNext" aria-label="Siguiente">›</button>
+  </div>
+</div>
 
   </div>
 </section>
