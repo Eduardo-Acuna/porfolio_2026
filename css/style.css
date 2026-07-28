@@ -477,6 +477,7 @@ html{ scrollbar-color: var(--ink) var(--cream); scrollbar-width: thin; }
     font-size: 12px;
   }
 }
+
 /* =====================================================
    ESTILOS DE SECCIÓN: TARJETAS SUPERIORES E INFERIOR
 ===================================================== */
@@ -502,10 +503,10 @@ html{ scrollbar-color: var(--ink) var(--cream); scrollbar-width: thin; }
 /* Estilo general para las tarjetas contenedoras blancas con bordes redondeados */
 .card-container {
   background: var(--white);
-border: 1px solid #d1d5db !important; /* Gris fino y elegante */
+  border: 1px solid #d1d5db !important; /* Gris fino y elegante */
   border-radius: var(--radius);
-padding: 16px 20px !important; /* Disminuye el espacio interior para que los elementos queden más ajustados */
-  margin-bottom: 18px !important; /* Espacio equilibrado entre un bloque y otro */
+  padding: 16px 20px !important; /* Disminuye el espacio interior */
+  margin-bottom: 18px !important; /* Espacio equilibrado */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   transition: var(--transition);
 }
@@ -518,8 +519,8 @@ padding: 16px 20px !important; /* Disminuye el espacio interior para que los ele
 .skill-block {
   display: flex;
   flex-direction: column;
-  padding: 16px 20px !important; /* Disminuye el espacio interior para que los elementos queden más ajustados */
-  margin-bottom: 18px !important; /* Espacio equilibrado entre un bloque y otro */
+  padding: 16px 20px !important;
+  margin-bottom: 18px !important;
 }
 
 .block-title {
@@ -547,13 +548,13 @@ padding: 16px 20px !important; /* Disminuye el espacio interior para que los ele
 .chip-box {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px !important; /* Espacio reducido entre cada ícono (antes era mayor) */
+  gap: 8px !important;
 }
 
-/* Tamaño de las celdas de los íconos optimizado para que entren más por línea */
+/* Tamaño de las celdas de los íconos optimizado */
 .chip {
-  width: 44px !important;  /* Ancho más compacto */
-  height: 44px !important; /* Alto más compacto */
+  width: 44px !important;
+  height: 44px !important;
   border-radius: var(--radius-sm);
   background: transparent !important;
   border: none !important;
@@ -565,7 +566,6 @@ padding: 16px 20px !important; /* Disminuye el espacio interior para que los ele
   position: relative;
 }
 
-/* Tamaño del ícono interior para mantener la proporción sin ocupar tanto espacio */
 .chip i {
   font-size: 28px !important; 
   transition: transform 0.3s ease;
@@ -587,8 +587,8 @@ padding: 16px 20px !important; /* Disminuye el espacio interior para que los ele
 ===================================================== */
 .cert-block-wrap {
   grid-column: 1 / -1;
-  padding: 16px 20px !important; /* Disminuye el espacio interior para que los elementos queden más ajustados */
-  margin-bottom: 18px !important; /* Espacio equilibrado entre un bloque y otro */
+  padding: 16px 20px !important;
+  margin-bottom: 18px !important;
 }
 
 .carousel-wrap {
@@ -611,9 +611,6 @@ padding: 16px 20px !important; /* Disminuye el espacio interior para que los ele
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .cert-card {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important; /* Si quieres quitarle la sombra o dejarla sutil solo al borde exterior */
   flex: 0 0 280px;
   scroll-snap-align: start;
   background: var(--white);
@@ -630,27 +627,21 @@ padding: 16px 20px !important; /* Disminuye el espacio interior para que los ele
 
 .cert-card:hover {
   transform: translateY(-6px);
-border-color: var(--mustard) !important;
+  border-color: var(--mustard) !important;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
 }
 
 /* Miniatura horizontal superior del certificado */
 .cert-thumb {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
   width: 100%;
   height: 150px;
   background: var(--cream-2);
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid #d1d5db; /* Borde sutíl en lugar de uno oscuro para mantener elegancia */
   overflow: hidden;
   position: relative;
 }
 
 .cert-thumb img {
-  background: transparent !important;
-  background-color: transparent !important;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -663,32 +654,31 @@ border-color: var(--mustard) !important;
   transform: scale(1.04);
 }
 
-/* Reducir el padding interno de la tarjeta para que sea más compacta */
+/* Reducir el padding interno de la tarjeta */
 .cert-content-info {
-  padding: 12px 14px 14px !important; /* Márgenes internos más chicos */
+  padding: 12px 14px 14px !important;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-/* Título del certificado con margen inferior mínimo */
+/* Título del certificado */
 .cert-card h4 {
   font-family: var(--font-display);
   font-size: 15px;
-  margin: 0 0 4px 0 !important; /* Margen muy pequeño hacia abajo */
+  margin: 0 0 4px 0 !important;
   line-height: 1.2;
   font-weight: 700;
   color: var(--ink);
 }
 
-/* Contenedor para separar institución y fecha en líneas distintas */
+/* Contenedor para separar institución y fecha */
 .cert-meta-wrap {
   display: flex;
   flex-direction: column;
-  gap: 1px; /* Espacio mínimo entre institución y fecha */
-  margin-bottom: 6px !important; /* Espacio reducido para que esté más cerca de "Ver certificado" */
+  gap: 1px;
+  margin-bottom: 6px !important;
 }
-
 
 .cert-institution {
   font-family: var(--font-body);
@@ -704,7 +694,7 @@ border-color: var(--mustard) !important;
   opacity: 0.8;
 }
 
-/* Enlace "Ver certificado" compacto */
+/* Enlace "Ver certificado" */
 .cert-card .link-arrow {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -718,12 +708,7 @@ border-color: var(--mustard) !important;
 }
 
 .cert-card .link-arrow:hover {
-  gap: 8px;
-  color: var(--mustard);
-}
-
-.cert-card .link-arrow:hover {
-  gap: 10px;
+  gap: 10px; /* Unificado para evitar conflicto de reglas */
   color: var(--mustard);
 }
 
@@ -769,20 +754,105 @@ border-color: var(--mustard) !important;
   .cert-card { flex: 0 0 240px; }
 }
 /* =====================================================
+   ESTILOS DEL MODAL / LIGHTBOX (CERTIFICADO AMPLIADO)
+   Corrección de bordes y botón X
+===================================================== */
+
+/* =====================================================
+   ESTILOS DEL MODAL / LIGHTBOX (VERSIÓN DEFINITIVA)
+   Elimina bordes extra, centra la X y añade brillo
+===================================================== */
+
+/* =====================================================
+   ESTILOS DEL MODAL BLINDADO (SIN CONFLICTOS)
+===================================================== */
+
+/* 1. Fondo oscuro (Overlay) */
+.custom-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 999999 !important; /* Nivel máximo para estar sobre toda la página */
+    /* Este padding evita que la X se corte si la imagen es muy grande y toca el borde del monitor */
+    padding: 30px !important; 
+}
+
+/* 2. Envoltorio de la imagen */
+.custom-modal-wrapper {
+    position: relative !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: visible !important; /* BLINDAJE CONTRA RECORTES */
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+/* 3. La Imagen */
+.custom-modal-img {
+    display: block !important;
+    max-width: 100% !important;
+    max-height: 85vh !important; /* Evita que la imagen sea más alta que la pantalla */
+    border-radius: 12px !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4) !important;
+    object-fit: contain !important;
+}
+
+/* 4. Botón X (Cerrar) */
+.custom-close-btn {
+    position: absolute !important;
+    top: -16px !important;
+    right: -16px !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background-color: var(--mustard, #FFC107) !important;
+    color: var(--ink, #1A1A1A) !important;
+    box-shadow: 0 0 15px var(--mustard, #FFC107) !important;
+    
+    /* Centrado del aspa */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    
+    cursor: pointer !important;
+    z-index: 1000000 !important; /* Mayor que el wrapper y el overlay */
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.custom-close-btn:hover {
+    transform: scale(1.15) !important;
+    box-shadow: 0 0 25px var(--mustard, #FFC107) !important;
+}
+/* =====================================================
    PROYECTOS
 ===================================================== */
-.proyectos{
+.proyectos {
   background: var(--cream);
   padding-top: 60px;
   padding-bottom: 60px;
   position: relative;
 }
-.proyectos .section-title{
+.proyectos .section-title {
   max-width: var(--max-w);
   margin-left: auto;
   margin-right: auto;
 }
-.proyectos::before{
+.proyectos::before {
   content: '';
   position: absolute;
   top: 0;
@@ -792,110 +862,150 @@ border-color: var(--mustard) !important;
   background: linear-gradient(90deg, transparent, var(--mustard), transparent);
   opacity: 0.2;
 }
-.proyectos-grid{
+.proyectos-grid {
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
-.proyecto-card{
+
+/* Estructura base de la tarjeta */
+.proyecto-card {
   background: var(--white);
-  border: var(--border);
+  border: 1px solid #d1d5db;
   border-radius: var(--radius);
-  padding: 20px 20px 22px;
+  padding: 0;
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
-.proyecto-card::before{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--mustard), var(--mustard-light));
-  opacity: 0;
-  transition: var(--transition);
-}
-.proyecto-card:hover::before{
-  opacity: 1;
-}
-.proyecto-card:hover{ 
+
+.proyecto-card:hover { 
   transform: translateY(-8px); 
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
   border-color: var(--mustard);
 }
-.proyecto-img{
-  height: 160px;
-  border-radius: var(--radius-sm);
-  margin-bottom: 16px;
-  border: 1px solid var(--ink);
-  transition: var(--transition);
-  position: relative;
+
+/* Contenedor de la imagen superior */
+.proyecto-thumb {
+  width: 100%;
+  height: 180px;
+  background: var(--cream-2);
+  border-bottom: 2px solid var(--ink);
   overflow: hidden;
 }
-.proyecto-img::after{
-  content: '🔍';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  font-size: 28px;
-  opacity: 0;
-  transition: var(--transition);
+
+.proyecto-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
 }
-.proyecto-card:hover .proyecto-img::after{
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0.6;
+
+.proyecto-card:hover .proyecto-thumb img {
+  transform: scale(1.05);
 }
-.proyecto-card:hover .proyecto-img{
-  transform: scale(1.02);
-  border-color: var(--mustard);
+
+/* Contenedor de la información y textos */
+/* Contenedor de la información y textos */
+.proyecto-content-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
 }
-.ph-1{ background: linear-gradient(135deg,#E0A62B,#F6F1E4); }
-.ph-2{ background: linear-gradient(135deg,#14130F,#4A473D); }
-.ph-3{ background: linear-gradient(135deg,#F6F1E4,#E0A62B); }
-.ph-4{ background: linear-gradient(135deg,#4A473D,#14130F); }
-.ph-5{ background: linear-gradient(135deg,#E0A62B,#4A473D); }
-.ph-6{ background: linear-gradient(135deg,#F6F1E4,#4A473D); }
-.proyecto-card h3{ 
-  margin: 0 0 8px; 
-  font-size: 18px;
+
+.proyecto-content-info h3 { 
+  margin: 0; 
+  font-size: 22px;
+  font-family: var(--font-display);
   font-weight: 700;
+  color: var(--ink);
   line-height: 1.2;
 }
-.proyecto-card p{ 
-  margin: 0 0 16px; 
+
+.proyecto-desc { 
+  margin: 0; 
   font-size: 14px; 
   color: var(--ink-soft);
   line-height: 1.6;
 }
-.link-arrow{ 
-  font-family: var(--font-mono); 
-  font-size: 13px; 
+
+/* Lista de tecnologías (ahora empuja todo hacia abajo y está pegada a los botones) */
+.proyecto-tech {
+  margin-top: auto; /* Empuja a las tecnologías y botones al final de la tarjeta */
+  margin-bottom: 2px; /* Espacio muy reducido para que queden pegados a los botones */
+  font-family: var(--font-mono);
+  font-size: 12px; /* Ligeramente más pequeño para mejor diseño */
   font-weight: 700;
-  display: inline-flex;
+  color: #A37D27; /* Un tono mostaza oscuro que combina con tu paleta y es legible */
+}
+
+/* Contenedor de los dos botones */
+.proyecto-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 0; /* Quitamos el margen porque la tecnología ya empuja */
+  padding-top: 0;
+}
+
+/* Estilos compartidos para ambos botones (más pequeños y con flex para los iconos) */
+.proyecto-links a {
+  flex: 1;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 6px; /* Espacio entre el icono y el texto */
+  padding: 6px 10px; /* Redujimos el padding para hacerlos más pequeños */
+  border-radius: 6px; /* Bordes ligeramente menos redondos por el tamaño */
+  font-family: var(--font-mono);
+  font-size: 12px; /* Letra un poco más pequeña */
+  font-weight: 700;
   transition: var(--transition);
-  color: var(--ink);
-  padding: 4px 0;
-  border-bottom: 2px solid transparent;
-  margin-top: auto;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
 }
-.link-arrow:hover{ 
-  gap: 14px;
-  border-bottom-color: var(--mustard);
-  color: var(--mustard);
+
+/* Botón principal (Ver Demo) */
+.btn-demo {
+  background: var(--ink); 
+  color: var(--white) !important;
 }
-@media (max-width: 900px){ .proyectos-grid{ grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px){ 
-  .proyectos-grid{ grid-template-columns: 1fr; }
-  .proyectos{ padding-top: 40px; padding-bottom: 40px; }
+
+.btn-demo:hover {
+  background: var(--mustard);
+  color: var(--ink) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--mustard-glow);
+}
+
+/* Botón secundario (Repositorio) */
+.btn-repo {
+  background: transparent;
+  color: var(--ink) !important; 
+  border-color: var(--ink) !important;
+}
+
+.btn-repo:hover {
+  background: rgba(20, 19, 15, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Responsividad */
+@media (max-width: 900px) { 
+  .proyectos-grid { grid-template-columns: 1fr 1fr; } 
+}
+
+@media (max-width: 600px) { 
+  .proyectos-grid { grid-template-columns: 1fr; }
+  .proyectos { padding-top: 40px; padding-bottom: 40px; }
 }
 
 /* =====================================================
