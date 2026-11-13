@@ -1,664 +1,691 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduardo Acuña | Desarrollador</title>
-<!-- Para navegadores modernos -->
-  <link rel="icon" type="image/webp" href="assets/img/pajaro_icono.webp">
-<!-- Para navegadores antiguos (fallback) -->
-<link rel="icon" href="assets/img/pajaro_icono.ico" sizes="any">
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Acuño | Desarrollador</title>
+    <link rel="icon" type="image/webp" href="assets/img/pajaro_icono.webp">
+    <meta name="description" content="Portafolio de Eduardo Acuño G., desarrollador web y software.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ux.css">
+    <script src="js/theme.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <meta name="description" content="Portafolio de Eduardo Acuño G., desarrollador web y software.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <!-- ================= NAV ================= -->
+    <header class="nav-wrap">
+      <nav class="nav">
+        <a href="#inicio" class="logo">
+          <img src="assets/img/logo.webp" alt="Eduardo Acuño" class="logo-img" width="1179" height="533" decoding="async">
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#certificados">Certificados</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+        </ul>
 
-  <div class="scroll-progress" id="scrollProgress"><span id="scrollProgressBar"></span></div>
+        <div class="nav-actions">
+          <!-- Interruptor de tema: siempre visible en la barra (escritorio y móvil) -->
+          <button class="theme-toggle" id="themeToggle" type="button" role="switch" aria-checked="false" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-controls="navLinks" type="button" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+      <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+    </header>
 
-  <!-- ================= NAV ================= -->
-  <header class="nav-wrap">
-    <nav class="nav">
-      <a href="#inicio" class="logo">
-        <img src="assets/img/logo.webp" alt="Eduardo Acuño" class="logo-img">
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
+    <a class="whatsapp-float" href="https://wa.me/595972384741" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="#fff" d="M12 1.5a10.5 10.5 0 0 0-9.1 15.75L1.2 23l5.9-1.55A10.5 10.5 0 1 0 12 1.5Z"/><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <main id="contenido" tabindex="-1">
+
+      <!-- ============ HERO CON FONDO ============ -->
+      <section id="inicio" class="hero" aria-label="Presentación">
+
+        <div class="hero-bg" aria-hidden="true"></div>
+
+        <!-- CONTENIDO DEL HERO -->
+        <div class="hero-card">
+          <span class="availability-badge" role="status">
+            <span class="availability-dot" aria-hidden="true"></span>
+            Disponible para trabajar
+          </span>
+          <div class="hero-text">
+            <h1 class="sr-only">Hola, soy Eduardo Acuño G. — Desarrollador Web/Software</h1>
+            <picture class="hero-name-picture"><source media="(max-width: 820px)" srcset="assets/img/inicio-reponsive.webp" width="720" height="344"><img src="assets/img/inicio1.webp" alt="Hola, soy Eduardo Acuño G." class="hero-name-img" fetchpriority="high" loading="eager" width="1100" height="614" decoding="async"></picture>
+
+            <div class="hero-desc">
+
+              <p class="hero-desc-text">Creo aplicaciones web utilizando tecnologías como Angular, PHP, Laravel y PostgreSQL, con un enfoque en soluciones funcionales, modernas y eficientes.</p>
+            </div>
+            <div class="hero-actions">
+              <div class="socials">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/595972384741" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="WhatsApp">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/Eduardo-Acuna" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  <span>GitHub</span>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/eduardo-acuna19" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+              <a href="https://drive.google.com/file/d/1isEVLeehmOpAX0PuZeONDQ0e90ZUJ55S/view" target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Ver CV en PDF">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>
+                DESCARGAR CV
+              </a>
+
+            </div>
+          </div>
+          <div class="hero-illustration">
+            <img src="assets/img/inicio3.webp" alt="Ilustración de Eduardo con su laptop y su perro en skate" class="hero-illustration-img" loading="eager" width="720" height="1080" decoding="async">
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HABILIDADES + HERRAMIENTAS + CERTIFICADOS ================= -->
+      <section id="certificados" class="skills-certificados">
+
+        <div class="skills-certificados-grid">
+
+          <!-- HABILIDADES TÉCNICAS + HERRAMIENTAS -->
+          <div class="skill-block card-container skills-card">
+            <h3 class="block-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>Habilidades técnicas</h3>
+            <div class="chip-box">
+              <span class="chip" title="HTML5"><img class="tool-logo" src="assets/img/tools/html5.svg" alt="HTML5" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="CSS3"><img class="tool-logo" src="assets/img/tools/css3.svg" alt="CSS3" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="JavaScript"><img class="tool-logo" src="assets/img/tools/javascript.svg" alt="JavaScript" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="TypeScript"><img class="tool-logo" src="assets/img/tools/typescript.svg" alt="TypeScript" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Java"><img class="tool-logo" src="assets/img/tools/java.svg" alt="Java" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="PHP"><img class="tool-logo" src="assets/img/tools/php.svg" alt="PHP" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Angular"><img class="tool-logo" src="assets/img/tools/angular.svg" alt="Angular" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Laravel"><img class="tool-logo" src="assets/img/tools/laravel.svg" alt="Laravel" width="32" height="32" loading="lazy" decoding="async"></span>
+            </div>
+
+            <h3 class="block-title herramientas-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"></path></svg>Herramientas que utilizo</h3>
+            <div class="chip-box">
+              <span class="chip" title="Git"><img class="tool-logo" src="assets/img/tools/git.svg" alt="Git" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="GitHub"><img class="tool-logo" src="assets/img/tools/github.svg" alt="GitHub" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Visual Studio Code"><img class="tool-logo" src="assets/img/tools/vscode.svg" alt="Visual Studio Code" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Figma"><img class="tool-logo" src="assets/img/tools/figma.svg" alt="Figma" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Bootstrap"><img class="tool-logo" src="assets/img/tools/bootstrap.svg" alt="Bootstrap" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Docker"><img class="tool-logo" src="assets/img/tools/docker.svg" alt="Docker" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="MySQL"><img class="tool-logo" src="assets/img/tools/mysql.svg" alt="MySQL" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="pgAdmin"><img class="tool-logo" src="assets/img/tools/postgresql.svg" alt="pgAdmin" width="32" height="32" loading="lazy" decoding="async"></span>
+              <span class="chip" title="ChatGPT"><img class="tool-logo" src="assets/img/tools/openai.svg" alt="ChatGPT" width="28" height="28" loading="lazy" decoding="async"></span>
+              <span class="chip" title="Claude"><img class="tool-logo" src="assets/img/tools/claude.svg" alt="Claude" width="28" height="28" loading="lazy" decoding="async"></span>
+            </div>
+          </div>
+
+          <!-- FORMACIÓN ACADÉMICA -->
+          <div class="skill-block card-container education-card">
+            <h3 class="block-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg>Formación Académica</h3>
+            <div class="formacion-list">
+              <div class="formacion-item">
+                <div class="formacion-logo" aria-hidden="true">
+                  <img src="assets/img/fpuna-logo.svg" alt="">
+                </div>
+                <div class="formacion-info">
+                  <p class="formacion-institucion">Facultad Politécnica - UNA</p>
+                  <p class="formacion-carrera">Ingeniería Informática</p>
+                  <p class="formacion-fecha">2022 - Actualidad</p>
+                </div>
+              </div>
+              <div class="formacion-item">
+                <div class="formacion-logo" aria-hidden="true">
+                  <img src="assets/img/logo-vii.webp" alt="" width="160" height="184" loading="lazy" decoding="async">
+                </div>
+                <div class="formacion-info">
+                  <p class="formacion-institucion">Colegio Nacional Vicente Ignacio Iturbe</p>
+                  <p class="formacion-carrera">Bachillerato Técnico en Informática</p>
+                  <p class="formacion-fecha">2019</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
+          <!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
+          <!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
+          <div class="skill-block cert-block-wrap card-container">
+            <h3 class="block-title"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"></circle><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"></path></svg>Certificaciones</h3>
+            <div class="carousel-wrap">
+              <button class="carousel-btn prev" id="certPrev" aria-label="Anterior"><img src="assets/img/icono-izq.png" alt="" width="44" height="44" decoding="async"></button>
+              <div class="carousel-track" id="certTrack" tabindex="0" role="region" aria-label="Certificados: usá las flechas para navegar">
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Introduccion_a_Angular.webp" alt="Certificado de Introducción a Angular otorgado a Eduardo Acuña Gonzalez" loading="lazy" width="1685" height="1191" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Introducción a Angular</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Delegaciones IIN y LCIK · IEEE Computer Society UNA</span>
+                      <span class="cert-date">20 al 31 de julio de 2026</span>
+                    </div>
+                    <a href="assets/img/certificados/Introduccion_a_Angular.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Programación_Java_Senior.webp" alt="Programación Java Senior" loading="lazy" width="1754" height="1241" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Programación Java Senior</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">SNPP</span>
+                      <span class="cert-date">24 de Octubre de 2024</span>
+                    </div>
+                    <a href="assets/img/certificados/Programación_Java_Senior.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Programacion_PHP.webp" alt="Programación Web Backend PHP" loading="lazy" width="1754" height="1241" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Programación Web Backend PHP</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">SNPP</span>
+                      <span class="cert-date">11 de Marzo de 2024</span>
+                    </div>
+                    <a href="assets/img/certificados/Programacion_PHP.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" alt="Curso de Python" loading="lazy" width="3508" height="2481" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Curso de Python</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Student Chapter IEEE ITBA</span>
+                      <span class="cert-date">Mayo 2024</span>
+                    </div>
+                    <a href="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/ORACLE_SQL.webp" alt="Oracle: SQL y Desarrollo en PL/SQL" loading="lazy" width="3509" height="2482" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Oracle: SQL y Desarrollo en PL/SQL</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Facultad Politécnica - UNA</span>
+                      <span class="cert-date">21 de Febrero 2024</span>
+                    </div>
+                    <a href="assets/img/certificados/ORACLE_SQL.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Master_Class_de_Java.webp" alt="Conquistando el Backend: Master Class de Java" loading="lazy" width="2208" height="1655" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Conquistando el Backend: Master Class de Java</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Talleres Donweb</span>
+                      <span class="cert-date">Agosto 2023</span>
+                    </div>
+                    <a href="assets/img/certificados/Master_Class_de_Java.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Taller-Redaccion-Cientifica.webp" alt="Redacción Científica" loading="lazy" width="5100" height="3300" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Redacción Científica</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Universidad del Norte</span>
+                      <span class="cert-date">15 de Febrero de 2023</span>
+                    </div>
+                    <a href="assets/img/certificados/Taller-Redaccion-Cientifica.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" alt="Gestión de Servicios en la Nube" loading="lazy" width="1754" height="1241" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Gestión de Servicios en la Nube</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">MITIC</span>
+                      <span class="cert-date">1 de Febrero de 2023</span>
+                    </div>
+                    <a href="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/LENGUAJE_C.webp" alt="Lenguaje de Programación C" loading="lazy" width="3300" height="2550" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Lenguaje de Programación C</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">SNPP</span>
+                      <span class="cert-date">28 de Diciembre de 2023</span>
+                    </div>
+                    <a href="assets/img/certificados/LENGUAJE_C.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" alt="Curso Profesional Desarrollo WEB" loading="lazy" width="1755" height="1240" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Curso Profesional Desarrollo WEB</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Código Facilito</span>
+                      <span class="cert-date">20 de Junio de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Curso_CSS.webp" alt="Curso de CSS" loading="lazy" width="3509" height="2480" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Curso de CSS</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Código Facilito</span>
+                      <span class="cert-date">10 de Junio de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Curso_CSS.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Curso_de_GIT_GITHUB.webp" alt="Curso GIT Y GITHUB" loading="lazy" width="1755" height="1241" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Curso GIT Y GITHUB</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Club de Programación - FIUNA</span>
+                      <span class="cert-date">Julio 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Curso_de_GIT_GITHUB.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" alt="Curso Profesional de Base de Datos" loading="lazy" width="1755" height="1240" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Curso Profesional de Base de Datos</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Código Facilito</span>
+                      <span class="cert-date">3 de Julio de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Seguridad_en_APIs.webp" alt="Webinar: Seguridad en APIs" loading="lazy" width="3509" height="2480" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Webinar: Seguridad en APIs</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">MITIC</span>
+                      <span class="cert-date">27 de Octubre de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Seguridad_en_APIs.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" alt="Introducción a la Gestión de Proyectos" loading="lazy" width="1755" height="1241" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Introducción a la Gestión de Proyectos</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">FACEN - UNA</span>
+                      <span class="cert-date">20 de Setiembre de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/metaverso_FPUNA.webp" alt="Metaverso" loading="lazy" width="2244" height="1586" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Metaverso</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Facultad Politécnica - UNA</span>
+                      <span class="cert-date">15 de Noviembre de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/metaverso_FPUNA.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" alt="Curso Profesional de JavaScript" loading="lazy" width="1755" height="1240" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Curso Profesional de JavaScript</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">Código Facilito</span>
+                      <span class="cert-date">Nov. 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" alt="Diseño Web Bootstrap" loading="lazy" width="3300" height="2550" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Diseño Web Bootstrap</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">SNPP</span>
+                      <span class="cert-date">8 de Abril de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/HTML_5.webp" alt="HTML 5" loading="lazy" width="3300" height="2550" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>HTML 5</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">SNPP</span>
+                      <span class="cert-date">8 de Abril de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/HTML_5.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+                <article class="cert-card">
+                  <div class="cert-thumb">
+                    <img src="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" alt="Marketing Digital y Comercio Electrónico" loading="lazy" width="1650" height="1275" decoding="async">
+                  </div>
+                  <div class="cert-content-info">
+                    <h4>Marketing Digital y Comercio Electrónico</h4>
+                    <div class="cert-meta-wrap">
+                      <span class="cert-date">SNPP</span>
+                      <span class="cert-date">23 de Mayo de 2022</span>
+                    </div>
+                    <a href="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" target="_blank" rel="noopener noreferrer" class="link-arrow">Ver certificado →</a>
+                  </div>
+                </article>
+
+              </div>
+              <button class="carousel-btn next" id="certNext" aria-label="Siguiente"><img src="assets/img/icono-der.png" alt="" width="44" height="44" decoding="async"></button>
+            </div>
+            <div class="carousel-dots" id="certDots" role="group" aria-label="Paginación de certificaciones"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="proyectos" class="proyectos">
+        <h2 class="section-title"><span class="title-row"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>Proyectos</span></h2>
+        <div class="carousel-wrap proyectos-carousel-wrap">
+          <button class="carousel-btn prev" id="proyPrev" aria-label="Anterior"><img src="assets/img/icono-izq.png" alt="" width="44" height="44" decoding="async"></button>
+          <div class="carousel-track proyectos-track" id="proyTrack" tabindex="0" role="region" aria-label="Proyectos: usá las flechas para navegar">
+
+            <!-- PROYECTO 1 -->
+            <article class="proyecto-card">
+              <div class="proyecto-thumb">
+                <img src="assets/img/proyectos/apy.jpg" alt="APY1 – Bachillerato Técnico" loading="lazy" width="1911" height="1018" decoding="async">
+              </div>
+              <div class="proyecto-content-info">
+                <h3>Cursos APY</h3>
+                <p class="proyecto-desc">Plataforma gratuita de preparación para el ingreso a Bachilleratos Técnicos y las Becas Itaipú, con teoría, ejercicios y simulacros con corrección instantánea.</p>
+                <ul class="proyecto-tech" aria-label="Tecnologías">
+                  <li class="tech-tag tag-html"><i class="devicon-html5-plain" aria-hidden="true"></i>HTML5</li>
+                  <li class="tech-tag tag-css"><i class="devicon-css3-plain" aria-hidden="true"></i>CSS3</li>
+                  <li class="tech-tag tag-js"><i class="devicon-javascript-plain" aria-hidden="true"></i>JavaScript</li>
+                  <li class="tech-tag tag-php"><i class="devicon-php-plain" aria-hidden="true"></i>PHP</li>
+                  <li class="tech-tag tag-mysql"><i class="devicon-mysql-plain" aria-hidden="true"></i>MySQL</li>
+                </ul>
+                <div class="proyecto-links">
+                  <a href="assets/img/proyectos/gif-apy1.mp4" class="btn-demo" data-demo-video="assets/img/proyectos/gif-apy1.mp4" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/Eduardo-Acuna/APY-1-Bachillerato-Tecnico" class="btn-repo" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROYECTO 2 -->
+            <article class="proyecto-card">
+              <div class="proyecto-thumb">
+                <img src="assets/img/proyectos/etech-web.jpg" alt="etech — Tienda de tecnología" loading="lazy" width="1917" height="1019" decoding="async">
+              </div>
+              <div class="proyecto-content-info">
+                <h3>etech — Tienda de tecnología</h3>
+                <p class="proyecto-desc">Aplicación web para comprar computadoras, componentes y accesorios tecnológicos. Permite explorar productos, gestionar el carrito y consultar pedidos. Incluye un panel administrativo para gestionar productos, categorías, usuarios y ventas.</p>
+                <ul class="proyecto-tech" aria-label="Tecnologías">
+                  <li class="tech-tag tag-php"><i class="devicon-php-plain" aria-hidden="true"></i>PHP</li>
+                  <li class="tech-tag tag-mysql"><i class="devicon-mysql-plain" aria-hidden="true"></i>MySQL</li>
+                  <li class="tech-tag tag-html"><i class="devicon-html5-plain" aria-hidden="true"></i>HTML5</li>
+                  <li class="tech-tag tag-css"><i class="devicon-css3-plain" aria-hidden="true"></i>CSS3</li>
+                  <li class="tech-tag tag-js"><i class="devicon-javascript-plain" aria-hidden="true"></i>JavaScript</li>
+                  <li class="tech-tag tag-bootstrap"><i class="devicon-bootstrap-plain" aria-hidden="true"></i>Bootstrap 5</li>
+                </ul>
+                <div class="proyecto-links">
+                  <a href="assets/img/proyectos/gif-etech-web.mp4" class="btn-demo" data-demo-video="assets/img/proyectos/gif-etech-web.mp4" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/Eduardo-Acuna/etech-web" class="btn-repo" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROYECTO 3 -->
+            <article class="proyecto-card">
+              <div class="proyecto-thumb">
+                <img src="assets/img/proyectos/etech-java.jpg" alt="eTech — Gestor de Inventario" loading="lazy" width="1916" height="1014" decoding="async">
+              </div>
+              <div class="proyecto-content-info">
+                <h3>eTech — Gestor de Inventario</h3>
+                <p class="proyecto-desc">Aplicación de escritorio para administrar productos, categorías y stock de una tienda tecnológica. Permite registrar movimientos de inventario y consultar reportes de ventas, con datos compartidos con la tienda web.</p>
+                <ul class="proyecto-tech" aria-label="Tecnologías">
+                  <li class="tech-tag tag-java"><i class="devicon-java-plain" aria-hidden="true"></i>Java 17</li>
+                  <li class="tech-tag tag-mysql"><i class="devicon-mysql-plain" aria-hidden="true"></i>MySQL</li>
+                </ul>
+                <div class="proyecto-links">
+                  <a href="assets/img/proyectos/gif-etech.mp4" class="btn-demo" data-demo-video="assets/img/proyectos/gif-etech.mp4" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/Eduardo-Acuna/etech" class="btn-repo" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROYECTO 5 -->
+            <article class="proyecto-card">
+              <div class="proyecto-thumb">
+                <img src="assets/img/proyectos/unit.jpg" alt="uniT — Gestor Académico" loading="lazy" width="1916" height="1020" decoding="async">
+              </div>
+              <div class="proyecto-content-info">
+                <h3>uniT — Gestor Académico</h3>
+                <p class="proyecto-desc">Aplicación web para organizar materias, tareas y horarios de clases. Permite gestionar pendientes, buscar libros y guardar bibliografía en un espacio personal.</p>
+                <ul class="proyecto-tech" aria-label="Tecnologías">
+                  <li class="tech-tag tag-laravel"><i class="devicon-laravel-plain" aria-hidden="true"></i>Laravel</li>
+                  <li class="tech-tag tag-php"><i class="devicon-php-plain" aria-hidden="true"></i>PHP</li>
+                  <li class="tech-tag tag-blade">Blade</li>
+                  <li class="tech-tag tag-tailwind"><i class="devicon-tailwindcss-original" aria-hidden="true"></i>Tailwind CSS</li>
+                  <li class="tech-tag tag-js"><i class="devicon-javascript-plain" aria-hidden="true"></i>JavaScript</li>
+                  <li class="tech-tag tag-sqlite"><i class="devicon-sqlite-plain" aria-hidden="true"></i>SQLite</li>
+                </ul>
+                <div class="proyecto-links">
+
+                  <a href="assets/img/proyectos/gif-unit.mp4" class="btn-demo" data-demo-video="assets/img/proyectos/gif-unit.mp4" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/Eduardo-Acuna/lista-tareas" class="btn-repo" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROYECTO 6 -->
+            <article class="proyecto-card">
+              <div class="proyecto-thumb">
+                <img src="assets/img/proyectos/ticket.jpg" alt="TicketTec" loading="lazy" width="1914" height="1015" decoding="async">
+              </div>
+              <div class="proyecto-content-info">
+                <h3>Ticket</h3>
+                <p class="proyecto-desc">Plataforma web para la gestión y venta de entradas para eventos. Incluye administración de eventos, categorías, compra de entradas, control de disponibilidad, autenticación de usuarios y panel administrativo para la gestión completa del sistema.</p>
+                <ul class="proyecto-tech" aria-label="Tecnologías">
+                  <li class="tech-tag tag-laravel"><i class="devicon-laravel-plain" aria-hidden="true"></i>Laravel</li>
+                  <li class="tech-tag tag-angular"><i class="devicon-angularjs-plain" aria-hidden="true"></i>Angular</li>
+                  <li class="tech-tag tag-mysql"><i class="devicon-mysql-plain" aria-hidden="true"></i>MySQL</li>
+                  <li class="tech-tag tag-rest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13M13 4l4 4-4 4"></path><path d="M20 16H7M11 12l-4 4 4 4"></path></svg>REST API</li>
+                </ul>
+                <div class="proyecto-links">
+                  <a href="assets/img/proyectos/gif-ticket.mp4" class="btn-demo" data-demo-video="assets/img/proyectos/gif-ticket.mp4" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Ver Demo
+                  </a>
+                  <a href="https://github.com/Eduardo-Acuna/sistema-ticket" class="btn-repo btn-full" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <button class="carousel-btn next" id="proyNext" aria-label="Siguiente"><img src="assets/img/icono-der.png" alt="" width="44" height="44" decoding="async"></button>
+        </div>
+        <div class="carousel-dots proyectos-dots" id="proyDots" role="group" aria-label="Paginación de proyectos"></div>
+      </section>
+
+      <!-- ================= SOBRE MI ================= -->
+      <section id="sobre-mi" class="sobre-mi">
+        <h2 class="section-title"><span class="title-row"><svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>Sobre mí…</span></h2>
+        <div class="sobre-grid reverse">
+          <div class="sobre-texto">
+            <p>Me llamo Eduardo, pero mis amigos me llaman Edu. Soy de la ciudad de Capiatá y me interesa contribuir al diseño y desarrollo de aplicaciones web y de software. Durante los últimos años me he dedicado a capacitarme y a perfeccionar mis habilidades en desarrollo web full-stack, realizando cursos y desarrollando diversos proyectos personales.</p>
+            <p>Actualmente soy estudiante de la carrera de Ingeniería en Informática en la Facultad Politécnica de la Universidad Nacional de Asunción (FPUNA). Mi formación académica me ha dado una excelente base lógica y me permite mantener un constante deseo de aprender e incorporar nuevas tecnologías.</p>
+            <p> Mi objetivo es seguir mejorando mis conocimientos y crecer como desarrollador de aplicaciones y software, creando y diseñando soluciones tecnológicas útiles, funcionales y que aporten valor a las personas.</p>
+            <p>Cuando no estoy escribiendo código, me gusta desconectarme y salir a patinar en skate con mis amigos. En mis ratos libres disfruto pintar y dibujar mientras escucho música. Comparto algunas de mis ilustraciones en <a href="https://pixabay.com/users/eduardo807-3300327/" target="_blank" rel="noopener noreferrer" class="inline-link">Pixabay</a> y de vez en cuando subo mis canciones favoritas del momento a <a href="https://www.mixcloud.com/EDU807/" target="_blank" rel="noopener noreferrer" class="inline-link">Mixcloud</a>.</p>
+          </div>
+          <div class="sobre-fotos">
+            <div class="foto-principal">
+              <img src="assets/img/sobremi2.png" alt="Eduardo" width="1173" height="1177" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+      <div class="footer-bg-clip" aria-hidden="true"></div>
+
+      <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <img src="assets/img/icono-arriba.png" alt="" width="54" height="54" decoding="async">
       </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#certificados">Certificados</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-      </ul>
-    </nav>
-  </header>
+      <div class="footer-grid">
 
-  <main>
-
-<!-- ============ HERO CON FONDO ============ -->
-<section id="inicio" class="hero" aria-label="Presentación">
-  
-  <!-- FONDO DE LA SECCIÓN -->
-  <div class="hero-bg" aria-hidden="true">
-    <picture>
-      <!-- WebP para navegadores modernos -->
-      <source srcset="assets/img/fondo2.png" type="image/webp">
-      <!-- Fallback JPG para navegadores viejos -->
-      <img src="assets/img/fondo1.png" alt="" loading="eager">
-    </picture>
-  </div>
-
-  <!-- CONTENIDO DEL HERO -->
-  <div class="hero-card">
-    <div class="hero-text">
-      <h1 class="sr-only">Hola, soy Eduardo Acuño G. — Desarrollador Web/Software</h1>
-      <picture>
-        <source srcset="assets/img/inicio1.webp" type="image/webp">
-        <img src="assets/img/inicio1.png" alt="Hola, soy Eduardo Acuño G." class="hero-name-img" width="480" height="auto" loading="eager">
-      </picture>
-      <p class="role-tag" aria-live="polite">&lt;DESARROLLADOR WEB&gt;</p>
-      <div class="hero-actions">
-        <a href="assets/CV-Eduardo-Acuno.pdf" class="btn-primary" download aria-label="Descargar CV en PDF">DESCARGAR CV</a>
-<div class="socials">
-  <!-- WhatsApp -->
-  <a href="https://wa.me/tu-numero" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-  </a>
-  <!-- GitHub -->
-  <a href="https://github.com/Eduardo-Acuna" target="_blank" rel="noopener" aria-label="GitHub">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-  </a>
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-  </a>
-</div>
-      </div>
-    </div>
-    <div class="hero-illustration">
-      <picture>
-        <source srcset="assets/img/inicio2.webp" type="image/webp">
-        <img src="assets/img/inicio2.png" alt="Ilustración de Eduardo con su laptop y su perro en skate" class="hero-illustration-img" width="380" height="auto" loading="eager">
-      </picture>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================= HABILIDADES + HERRAMIENTAS + CERTIFICADOS (CARRUSEL) ================= -->
-<!-- ================= HABILIDADES + HERRAMIENTAS + CERTIFICADOS ================= -->
-<section id="certificados" class="skills-certificados">
-
-  <div class="skills-certificados-grid">
-    
-    <!-- HABILIDADES TÉCNICAS -->
-    <div class="skill-block card-container">
-      <h3 class="block-title">Habilidades técnicas</h3>
-      <div class="chip-box">
-        <span class="chip" aria-label="HTML5"><i class="devicon-html5-plain colored"></i></span>
-        <span class="chip" aria-label="CSS3"><i class="devicon-css3-plain colored"></i></span>
-        <span class="chip" aria-label="JavaScript"><i class="devicon-javascript-plain colored"></i></span>
-        <span class="chip" aria-label="TypeScript"><i class="devicon-typescript-plain colored"></i></span>
-        <span class="chip" aria-label="Java"><i class="devicon-java-plain colored"></i></span>
-        <span class="chip" aria-label="PHP"><i class="devicon-php-plain colored"></i></span>
-        <span class="chip" aria-label="Angular"><i class="devicon-angularjs-plain colored"></i></span>
-        <span class="chip" aria-label="Laravel"><i class="devicon-laravel-plain colored"></i></span>
-      </div>
-    </div>
-
-    <!-- HERRAMIENTAS -->
-    <div class="skill-block card-container">
-      <h3 class="block-title">Herramientas que utilizo</h3>
-      <div class="chip-box">
-        <span class="chip" aria-label="Git"><i class="devicon-git-plain colored"></i></span>
-        <span class="chip" aria-label="GitHub"><i class="devicon-github-original colored"></i></span>
-        <span class="chip" aria-label="Visual Studio Code"><i class="devicon-vscode-plain colored"></i></span>
-        <span class="chip" aria-label="Figma"><i class="devicon-figma-plain colored"></i></span>
-        <span class="chip" aria-label="Bootstrap"><i class="devicon-bootstrap-plain colored"></i></span>
-        <span class="chip" aria-label="Docker"><i class="devicon-docker-plain colored"></i></span>
-        <span class="chip" aria-label="MySQL"><i class="devicon-mysql-plain colored"></i></span>
-        <span class="chip" aria-label="pgAdmin"><i class="devicon-postgresql-plain colored"></i></span>
-      </div>
-    </div>
-
-<!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
-<!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
-<!-- ================= SECCIÓN DE CERTIFICACIONES ================= -->
-<div class="skill-block cert-block-wrap card-container">
-  <h3 class="block-title">Certificaciones</h3>
-  <div class="carousel-wrap">
-    <button class="carousel-btn prev" id="certPrev" aria-label="Anterior">‹</button>
-    <div class="carousel-track" id="certTrack">
-      
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Programación_Java_Senior.webp" alt="Programación Java Senior" loading="lazy">
+        <div class="footer-brand">
+          <img src="assets/img/fondo5.webp" alt="Eduardo Acuño" class="footer-logo-img" width="292" height="193" loading="lazy" decoding="async">
+          <p class="footer-text">© 2026 Eduardo Acuño G.</p>
+          <p class="footer-text"> Todos los derechos reservados.</p>
         </div>
-        <div class="cert-content-info">
-          <h4>Programación Java Senior</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">SNPP</span>
-            <span class="cert-date">24 de Octubre de 2024</span>
+
+        <div class="footer-center">
+          <div class="footer-socials">
+            <a href="https://wa.me/595972384741" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+            <a href="https://github.com/Eduardo-Acuna" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/eduardo-acuna19" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+
           </div>
-          <a href="assets/img/certificados/Programación_Java_Senior.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
+          <div class="footer-contact">
+            <a href="mailto:eduardoacunag2020@gmail.com">eduardoacunag2020@gmail.com</a>
+            <a href="tel:+595972384741">+595 972 384 741</a>
+          </div>
         </div>
-      </article>
 
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Programacion_PHP.webp" alt="Programación Web Backend PHP" loading="lazy">
+        <div class="footer-nav">
+          <p class="footer-title">Navegación</p>
+          <a href="#inicio">Inicio</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#certificados">Certificados</a>
+          <a href="#sobre-mi">Sobre mí</a>
         </div>
-        <div class="cert-content-info">
-          <h4>Programación Web Backend PHP</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">SNPP</span>
-            <span class="cert-date">11 de Marzo de 2024</span>
-          </div>
-          <a href="assets/img/certificados/Programacion_PHP.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" alt="Curso de Python" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Curso de Python</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Student Chapter IEEE ITBA</span>
-            <span class="cert-date">Mayo 2024</span>
-          </div>
-          <a href="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/ORACLE_SQL.webp" alt="Oracle: SQL y Desarrollo en PL/SQL" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Oracle: SQL y Desarrollo en PL/SQL</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Facultad Politécnica - UNA</span>
-            <span class="cert-date">21 de Febrero 2024</span>
-          </div>
-          <a href="assets/img/certificados/ORACLE_SQL.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Master_Class_de_Java.webp" alt="Conquistando el Backend: Master Class de Java" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Conquistando el Backend: Master Class de Java</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Talleres Donweb</span>
-            <span class="cert-date">Agosto 2023</span>
-          </div>
-          <a href="assets/img/certificados/Master_Class_de_Java.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Taller-Redaccion-Cientifica.webp" alt="Redacción Científica" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Redacción Científica</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Universidad del Norte</span>
-            <span class="cert-date">15 de Febrero de 2023</span>
-          </div>
-          <a href="assets/img/certificados/Taller-Redaccion-Cientifica.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" alt="Gestión de Servicios en la Nube" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Gestión de Servicios en la Nube</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">MITIC</span>
-            <span class="cert-date">1 de Febrero de 2023</span>
-          </div>
-          <a href="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/LENGUAJE_C.webp" alt="Lenguaje de Programación C" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Lenguaje de Programación C</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">SNPP</span>
-            <span class="cert-date">28 de Diciembre de 2023</span>
-          </div>
-          <a href="assets/img/certificados/LENGUAJE_C.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" alt="Curso Profesional Desarrollo WEB" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Curso Profesional Desarrollo WEB</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Código Facilito</span>
-            <span class="cert-date">20 de Junio de 2022</span>
-          </div>
-          <a href="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Curso_CSS.webp" alt="Curso de CSS" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Curso de CSS</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Código Facilito</span>
-            <span class="cert-date">10 de Junio de 2022</span>
-          </div>
-          <a href="assets/img/certificados/Curso_CSS.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Curso_de_GIT_GITHUB.webp" alt="Curso GIT Y GITHUB" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Curso GIT Y GITHUB</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Club de Programación - FIUNA</span>
-            <span class="cert-date">Julio 2022</span>
-          </div>
-          <a href="assets/img/certificados/Curso_de_GIT_GITHUB.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" alt="Curso Profesional de Base de Datos" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Curso Profesional de Base de Datos</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Código Facilito</span>
-            <span class="cert-date">3 de Julio de 2022</span>
-          </div>
-          <a href="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Seguridad_en_APIs.webp" alt="Webinar: Seguridad en APIs" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Webinar: Seguridad en APIs</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">MITIC</span>
-            <span class="cert-date">27 de Octubre de 2022</span>
-          </div>
-          <a href="assets/img/certificados/Seguridad_en_APIs.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" alt="Introducción a la Gestión de Proyectos" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Introducción a la Gestión de Proyectos</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">FACEN - UNA</span>
-            <span class="cert-date">20 de Setiembre de 2022</span>
-          </div>
-          <a href="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/metaverso_FPUNA.webp" alt="Metaverso" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Metaverso</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Facultad Politécnica - UNA</span>
-            <span class="cert-date">15 de Noviembre de 2022</span>
-          </div>
-          <a href="assets/img/certificados/metaverso_FPUNA.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" alt="Curso Profesional de JavaScript" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Curso Profesional de JavaScript</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">Código Facilito</span>
-            <span class="cert-date">Nov. 2022</span>
-          </div>
-          <a href="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" alt="Diseño Web Bootstrap" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Diseño Web Bootstrap</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">SNPP</span>
-            <span class="cert-date">8 de Abril de 2022</span>
-          </div>
-          <a href="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/HTML_5.webp" alt="HTML 5" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>HTML 5</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">SNPP</span>
-            <span class="cert-date">8 de Abril de 2022</span>
-          </div>
-          <a href="assets/img/certificados/HTML_5.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb">
-          <img src="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" alt="Marketing Digital y Comercio Electrónico" loading="lazy">
-        </div>
-        <div class="cert-content-info">
-          <h4>Marketing Digital y Comercio Electrónico</h4>
-          <div class="cert-meta-wrap">
-            <span class="cert-date">SNPP</span>
-            <span class="cert-date">23 de Mayo de 2022</span>
-          </div>
-          <a href="assets/img/certificados/Marketing_Digital_y_Comercio_Electronico.webp" target="_blank" rel="noopener" class="link-arrow">Ver certificado →</a>
-        </div>
-      </article>
-
-    </div>
-    <button class="carousel-btn next" id="certNext" aria-label="Siguiente">›</button>
-  </div>
-</div>
-
-<!-- ================= MODAL DE CERTIFICADOS ================= -->
-  <div class="cert-modal" id="certModal" aria-hidden="true">
-    <div class="cert-modal-content">
-      <button class="cert-modal-close" id="certModalClose" aria-label="Cerrar">&times;</button>
-      <img src="" alt="" id="certModalImg">
-    </div>
-  </div>
-
-  </div>
-</section>
-
-<!-- ================= PROYECTOS ================= -->
-    <section id="proyectos" class="proyectos">
-      <h2 class="section-title">Proyectos</h2>
-      <div class="proyectos-grid">
-        
-        <!-- PROYECTO 1 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/apy1.webp" alt="APY 1 – Bachillerato Técnico" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>APY 1 – Bachillerato Técnico</h3>
-            <p class="proyecto-desc">Plataforma educativa enfocada en la preparación para los exámenes de admisión de Bachilleratos Técnicos en Paraguay. </p>
-            <p class="proyecto-tech">HTML | CSS | JavaScript | PHP</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="https://github.com/Eduardo-Acuna/APY-1-Bachillerato-Tecnico" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 2 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/apy2.webp" alt="APY 2 - Becas ITAIPU" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>APY 2 - Becas ITAIPU</h3>
-            <p class="proyecto-desc">Plataforma educativa desarrollada para apoyar a estudiantes paraguayos en la preparación del examen de las Becas ITAIPU con contenido teórico, ejercicios prácticos y simulaciones de examen.</p>
-            <p class="proyecto-tech">HTML | CSS | JavaScript | PHP</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="https://github.com/Eduardo-Acuna/APY2-Becas_ITAIPU" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 3 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/inventario.webp" alt="Sistema de Gestión de Inventarios" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>Gestión de Inventarios</h3>
-            <p class="proyecto-desc">Sistema diseñado para administrar el inventario de una empresa mediante el control de productos, categorías, proveedores y movimientos de stock.</p>
-            <p class="proyecto-tech">PHP | MySQL | HTML | CSS | JavaScript</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="#" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 4 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/galeria.webp" alt="Galería de Imágenes Interactiva" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>Galería de Imágenes</h3>
-            <p class="proyecto-desc">Aplicación web que permite a los usuarios subir, visualizar y organizar imágenes por categorías, hacer búsqueda y filtrado.</p>
-            <p class="proyecto-tech">HTML | CSS | JavaScript | PHP | MySQL</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="#" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 5 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/tareas.webp" alt="Lista de Tareas" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>Lista de Tareas</h3>
-            <p class="proyecto-desc">Aplicación desarrollada con Angular para gestionar tareas personales de manera eficiente. Permite crear, editar, eliminar y marcar tareas como completadas.</p>
-            <p class="proyecto-tech">Angular | TypeScript | HTML | CSS</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="https://github.com/Eduardo-Acuna/lista-tareas" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 6 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/tickettec.webp" alt="TicketTec" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>Ticket</h3>
-            <p class="proyecto-desc">Plataforma web para la gestión y venta de entradas para eventos. Incluye administración de eventos, categorías, compra de entradas, control de disponibilidad, autenticación de usuarios y panel administrativo para la gestión completa del sistema.</p>
-            <p class="proyecto-tech">Laravel | Angular | MySQL | REST API</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="https://github.com/Eduardo-Acuna/sistema-ticket" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 7 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/aguateria.webp" alt="Aguatería Santa Catalina" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>Aguatería Santa Catalina</h3>
-            <p class="proyecto-desc">Sistema de gestión y facturación desarrollado para optimizar las operaciones de una distribuidora de agua. Permite administrar clientes, facturación, pagos y generar reportes administrativos para mejorar el control.</p>
-            <p class="proyecto-tech">Java | MySQL</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="#" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROYECTO 8 -->
-        <article class="proyecto-card">
-          <div class="proyecto-thumb">
-            <img src="assets/img/proyectos/colegio.webp" alt="Colegio Nacional Vicente Ignacio Iturbe" loading="lazy">
-          </div>
-          <div class="proyecto-content-info">
-            <h3>Colegio Nacional Vicente Ignacio Iturbe</h3>
-            <p class="proyecto-desc">Sitio web institucional del Colegio Nacional Vicente Ignacio Iturbe. Incluye secciones informativas, noticias, eventos, galerías y contactos.</p>
-            <p class="proyecto-tech">Angular | TypeScript | HTML | CSS</p>
-            <div class="proyecto-links">
-              <a href="#" class="btn-demo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Ver Demo
-              </a>
-              <a href="#" class="btn-repo" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                Repositorio
-              </a>
-            </div>
-          </div>
-        </article>
 
       </div>
-    </section>
+    </footer>
 
-    <!-- ================= SOBRE MI ================= -->
-    <section id="sobre-mi" class="sobre-mi">
-      <h2 class="section-title center">Sobre mí…</h2>
-      <div class="sobre-grid">
-        <div class="sobre-texto">
-          <p>Actualmente soy estudiante de ingeniería en informática en la Facultad Politécnica de la Universidad Nacional de Asunción. Mis intereses se centran en diseñar experiencias, momentos y productos significativos que provoquen emociones positivas en las personas.</p>
-          <p>Nací en San Lorenzo y crecí en Asunción. Cuando no estoy diseñando o fabricando cosas, me gusta salir a patinar, buscar spots y probar nuevos trucos. En mi tiempo libre suelo pintar y dibujar. Aquí hay algunos de mis trabajos favoritos.</p>
-        </div>
-        <div class="polaroid">
-          <div class="polaroid-img"></div>
-          <p class="polaroid-caption">~ impulsado por la curiosidad</p>
-        </div>
+    <!-- ================= MODAL DE CERTIFICADOS ================= -->
+    <dialog class="cert-modal" id="certModal" aria-labelledby="modalTitle">
+      <div class="cert-modal-content">
+        <button type="button" class="cert-modal-close" id="certModalClose" aria-label="Cerrar visor" autofocus>&times;</button>
+        <h2 id="modalTitle" class="sr-only">Vista previa</h2>
+        <div class="modal-feedback"><span class="loading-spinner" aria-hidden="true"></span><p id="modalStatus" role="status" aria-live="polite"></p><button type="button" id="modalRetry" class="btn-primary" hidden>Reintentar</button></div>
+        <div class="cert-modal-img-wrap" id="modalMedia"></div>
       </div>
+    </dialog>
 
-
-      <div class="galeria">
-        <div class="galeria-item"></div>
-        <div class="galeria-item"></div>
-        <div class="galeria-item"></div>
-        <div class="galeria-item"></div>
-        <div class="galeria-item"></div>
-        <div class="galeria-item"></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">&#8963;</button>
-    <div class="footer-grid">
-      <div>
-        <p class="footer-title">Navegación</p>
-        <a href="#inicio">Inicio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#certificados">Certificados</a>
-        <a href="#sobre-mi">Sobre mí</a>
-      </div>
-      <div>
-        <p class="footer-title">Conectemos</p>
-        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:eduardo@example.com">Email</a>
-      </div>
-      <div>
-        <p class="footer-title">Créditos</p>
-        <p class="footer-text">© 2026 Eduardo Acuño G. Todos los derechos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ================= MODAL DE CERTIFICADOS ================= -->
-  <div class="cert-modal" id="certModal" aria-hidden="true">
-    <div class="cert-modal-content">
-      <button class="cert-modal-close" id="certModalClose" aria-label="Cerrar">&times;</button>
-      <img src="" alt="" id="certModalImg">
-    </div>
-  </div>
-
-  <script src="js/script.js"></script>
-</body>
+    <script src="js/script.js"></script>
+    <script src="js/media.js"></script>
+  </body>
 </html>

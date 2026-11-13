@@ -1,0 +1,350 @@
+/* Loading feedback and keyboard navigation; content works without JavaScript. */
+.carousel-btn, .carousel-btn:hover, .scroll-top, .scroll-top:hover, :root[data-theme="dark"] .carousel-btn:hover {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.carousel-btn img, .scroll-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.carousel-btn, .proyectos-carousel-wrap .carousel-btn {
+  width: 60px;
+  height: 60px;
+}
+
+.scroll-top {
+  width: 76px;
+  height: 76px;
+  top: -38px;
+}
+
+@media (max-width: 900px) {
+  .carousel-btn, .proyectos-carousel-wrap .carousel-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .scroll-top {
+    width: 64px;
+    height: 64px;
+    top: -32px;
+  }
+
+}
+
+.skills-certificados, .proyectos {
+  isolation: isolate;
+}
+
+.skills-certificados::after, .proyectos::after, .sobre-mi::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url('../assets/img/fondo-pagina.png') right center / clamp(90px, 15vw, 210px) auto no-repeat, url('../assets/img/fondo-pagina1.png') left bottom / clamp(180px, 35vw, 480px) auto no-repeat;
+  opacity: .18;
+}
+
+.proyectos::after {
+  transform: scaleX(-1);
+}
+
+.sobre-mi::after {
+  left: calc((100% - 100vw) / 2);
+  right: calc((100% - 100vw) / 2);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -100px;
+  z-index: 1000;
+  padding: 12px 20px;
+  background: var(--white);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.hero-name-picture {
+  display: block;
+  width: 100%;
+  max-width: 550px;
+}
+
+.chip .tool-logo {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform .2s ease;
+}
+
+:root[data-theme="dark"] .chip .tool-logo[src$="/github.svg"] {
+  filter: invert(1);
+}
+
+@media (hover: hover) {
+  .chip:hover .tool-logo {
+    transform: scale(1.12);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip .tool-logo {
+    transition: none;
+  }
+
+}
+
+.carousel-btn:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.carousel-dots {
+  gap: 0;
+  margin-top: 8px;
+  min-height: 28px;
+}
+
+.carousel-dots .carousel-dot, .carousel-dots .carousel-dot.active {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 28px;
+  min-width: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.carousel-dots .carousel-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--dot);
+  transition: width .2s ease, background-color .2s ease;
+}
+
+.carousel-dots .carousel-dot.active::before {
+  width: 18px;
+  background: var(--mustard);
+}
+
+.carousel-dots .carousel-dot:hover::before {
+  background: var(--mustard);
+}
+
+.cert-thumb, .proyecto-thumb {
+  position: relative;
+}
+
+.image-status {
+  display: none;
+}
+
+.is-loading > .image-status, .image-failed > .image-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 13px;
+  text-align: center;
+}
+
+.is-loading > .image-status {
+  background: linear-gradient(100deg, var(--cream) 25%, var(--white) 50%, var(--cream) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s linear infinite;
+}
+
+.image-failed img {
+  visibility: hidden;
+}
+
+@keyframes skeleton-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+dialog.cert-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: fit-content;
+  max-width: min(1100px, 92vw);
+  height: auto;
+  max-height: 86dvh;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  opacity: 1;
+  overflow: visible;
+}
+
+dialog.cert-modal:not([open]) {
+  display: none;
+}
+
+dialog.cert-modal[open] {
+  display: block;
+}
+
+dialog.cert-modal::backdrop {
+  background: rgb(20 19 15 / .85);
+  backdrop-filter: blur(4px);
+}
+
+dialog.cert-modal .cert-modal-content {
+  display: block;
+  max-width: 100%;
+  transform: none;
+}
+
+dialog.cert-modal .cert-modal-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  margin: 0;
+}
+
+.modal-feedback {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.modal-feedback:has(p:not(:empty)) {
+  min-width: min(320px, 80vw);
+  padding: 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+}
+
+.modal-feedback p:empty {
+  display: none;
+}
+
+.modal-feedback .btn-primary {
+  margin: 16px auto;
+}
+
+.loading-spinner {
+  display: none;
+  width: 30px;
+  height: 30px;
+  margin: 18px auto;
+  border: 3px solid var(--line);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: loading-spin .8s linear infinite;
+}
+
+.cert-modal.is-loading .loading-spinner {
+  display: block;
+}
+
+.cert-modal-img-wrap:empty {
+  display: none;
+}
+
+dialog.cert-modal img, dialog.cert-modal video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 86dvh;
+  margin: auto;
+  object-fit: contain;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.not-found {
+  max-width: 680px;
+  margin: 15vh auto;
+  padding: 24px;
+}
+
+.not-found p {
+  margin: 20px 0;
+}
+
+@media (max-width: 820px) {
+  .hero-name-picture {
+    max-width: calc(100% + 32px);
+    width: calc(100% + 32px);
+    margin: 0 -16px 6px;
+  }
+
+  .hero-name-picture .hero-name-img {
+    display: block;
+    max-width: 100%;
+  }
+
+  dialog.cert-modal .cert-modal-close {
+    top: -14px;
+    right: -6px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .is-loading > .image-status, .loading-spinner {
+    animation: none;
+  }
+
+}
