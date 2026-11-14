@@ -21,6 +21,18 @@ async function walk(dir) {
   }
 }
 await walk('dist');
+// Windows may hide case-only differences between working files and Git names.
+// Git metadata is optional in deployment environments.
+let trackedFiles = [];
+try {
+  trackedFiles = execFileSync('git', ['ls-files', '-z'], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']}).split('\0').filter(Boolean);
+} catch { /* Deployment archives may not contain Git metadata. */ }
+const trackedByCase = new Map(trackedFiles.map(file => [file.toLowerCase(), file]));
+for (const file of files) {
+  const publicPath = file.slice('dist/'.length);
+  const tracked = trackedByCase.get(publicPath.toLowerCase());
+  assert(!tracked || tracked === publicPath, `Filename case differs from Git: ${publicPath}; use ${tracked}`);
+}
 for (const file of files) {
   assertPublicPath(file.slice('dist/'.length));
   if (/\.(?:html|css|js|svg)$/.test(file)) assertNoSecrets(await readFile(file, 'utf8'), file);
