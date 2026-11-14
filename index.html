@@ -16,10 +16,7 @@
   </head>
   <body>
     <div class="page-loader" id="pageLoader" role="status" aria-live="polite" hidden>
-      <picture>
-        <source media="(max-width: 820px)" srcset="assets/img/gif-cargando-reponsive.webp">
-        <img src="assets/img/gif-cargando.webp" alt="" loading="lazy" decoding="async">
-      </picture>
+      <video data-desktop-src="assets/img/gif-cargando.mp4" data-mobile-src="assets/img/gif-cargando-reponsive.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
       <span class="page-loader-caption">Cargando contenido…</span>
     </div>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -174,11 +171,11 @@
           <div class="skill-block cert-block-wrap card-container">
             <h3 class="block-title"><svg class="title-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 1a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm-1.2 11.7L6.6 8.5l2.1-2.1 2.1 2.1 4.5-4.5 2.1 2.1-6.6 6.6Z"/><path d="m6 16-1 8 7-3 7 3-1-8a10 10 0 0 1-12 0Z"/></svg>Certificaciones</h3>
             <div class="carousel-wrap">
-              <button class="carousel-btn prev" id="certPrev" aria-label="Anterior"><img src="assets/img/icono-izq.png" alt="" width="44" height="44" decoding="async"></button>
+              <button class="carousel-btn prev" id="certPrev" aria-label="Anterior"><img src="assets/img/icono-izq.webp" alt="" width="44" height="44" decoding="async"></button>
               <div class="carousel-track" id="certTrack" tabindex="0" role="region" aria-label="Certificados: usá las flechas para navegar">
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Introduccion_a_Angular.webp" alt="Certificado de Introducción a Angular otorgado a Eduardo Acuña Gonzalez" loading="lazy" width="1685" height="1191" decoding="async">
+                    <img src="assets/img/certificados/Introduccion_a_Angular.thumb.webp" alt="Certificado de Introducción a Angular otorgado a Eduardo Acuña Gonzalez" loading="lazy" width="1685" height="1191" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Introducción a Angular</h4>
@@ -192,7 +189,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Programación_Java_Senior.webp" alt="Programación Java Senior" loading="lazy" width="1754" height="1241" decoding="async">
+                    <img src="assets/img/certificados/Programación_Java_Senior.thumb.webp" alt="Programación Java Senior" loading="lazy" width="1754" height="1241" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Programación Java Senior</h4>
@@ -206,7 +203,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Programacion_PHP.webp" alt="Programación Web Backend PHP" loading="lazy" width="1754" height="1241" decoding="async">
+                    <img src="assets/img/certificados/Programacion_PHP.thumb.webp" alt="Programación Web Backend PHP" loading="lazy" width="1754" height="1241" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Programación Web Backend PHP</h4>
@@ -220,7 +217,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Curso_de_Python-IEEE-ITBA.webp" alt="Curso de Python" loading="lazy" width="3508" height="2481" decoding="async">
+                    <img src="assets/img/certificados/Curso_de_Python-IEEE-ITBA.thumb.webp" alt="Curso de Python" loading="lazy" width="3508" height="2481" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Curso de Python</h4>
@@ -234,7 +231,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/ORACLE_SQL.webp" alt="Oracle: SQL y Desarrollo en PL/SQL" loading="lazy" width="3509" height="2482" decoding="async">
+                    <img src="assets/img/certificados/ORACLE_SQL.thumb.webp" alt="Oracle: SQL y Desarrollo en PL/SQL" loading="lazy" width="3509" height="2482" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Oracle: SQL y Desarrollo en PL/SQL</h4>
@@ -248,7 +245,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Master_Class_de_Java.webp" alt="Conquistando el Backend: Master Class de Java" loading="lazy" width="2208" height="1655" decoding="async">
+                    <img src="assets/img/certificados/Master_Class_de_Java.thumb.webp" alt="Conquistando el Backend: Master Class de Java" loading="lazy" width="2208" height="1655" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Conquistando el Backend: Master Class de Java</h4>
@@ -262,7 +259,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/TALLER-REDACCION-CIENTIFICA.webp" alt="Redacción Científica" loading="lazy" width="5100" height="3300" decoding="async">
+                    <img src="assets/img/certificados/TALLER-REDACCION-CIENTIFICA.thumb.webp" alt="Redacción Científica" loading="lazy" width="5100" height="3300" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Redacción Científica</h4>
@@ -276,7 +273,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Gestión_de_servicios_en_la_nube.webp" alt="Gestión de Servicios en la Nube" loading="lazy" width="1754" height="1241" decoding="async">
+                    <img src="assets/img/certificados/Gestión_de_servicios_en_la_nube.thumb.webp" alt="Gestión de Servicios en la Nube" loading="lazy" width="1754" height="1241" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Gestión de Servicios en la Nube</h4>
@@ -290,7 +287,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/LENGUAJE_C.webp" alt="Lenguaje de Programación C" loading="lazy" width="3300" height="2550" decoding="async">
+                    <img src="assets/img/certificados/LENGUAJE_C.thumb.webp" alt="Lenguaje de Programación C" loading="lazy" width="3300" height="2550" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Lenguaje de Programación C</h4>
@@ -304,7 +301,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.webp" alt="Curso Profesional Desarrollo WEB" loading="lazy" width="1755" height="1240" decoding="async">
+                    <img src="assets/img/certificados/Curso_Profesional_de_Desarrollo_Web-Codigo_Facilito.thumb.webp" alt="Curso Profesional Desarrollo WEB" loading="lazy" width="1755" height="1240" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Curso Profesional Desarrollo WEB</h4>
@@ -318,7 +315,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Curso_CSS.webp" alt="Curso de CSS" loading="lazy" width="3509" height="2480" decoding="async">
+                    <img src="assets/img/certificados/Curso_CSS.thumb.webp" alt="Curso de CSS" loading="lazy" width="3509" height="2480" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Curso de CSS</h4>
@@ -332,7 +329,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Curso_de_GIT_GITHUB.webp" alt="Curso GIT Y GITHUB" loading="lazy" width="1755" height="1241" decoding="async">
+                    <img src="assets/img/certificados/Curso_de_GIT_GITHUB.thumb.webp" alt="Curso GIT Y GITHUB" loading="lazy" width="1755" height="1241" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Curso GIT Y GITHUB</h4>
@@ -346,7 +343,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.webp" alt="Curso Profesional de Base de Datos" loading="lazy" width="1755" height="1240" decoding="async">
+                    <img src="assets/img/certificados/Curso_Profesional_de_Base_de_datos_Codigo_Facilito.thumb.webp" alt="Curso Profesional de Base de Datos" loading="lazy" width="1755" height="1240" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Curso Profesional de Base de Datos</h4>
@@ -360,7 +357,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Seguridad_en_APIs.webp" alt="Webinar: Seguridad en APIs" loading="lazy" width="3509" height="2480" decoding="async">
+                    <img src="assets/img/certificados/Seguridad_en_APIs.thumb.webp" alt="Webinar: Seguridad en APIs" loading="lazy" width="3509" height="2480" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Webinar: Seguridad en APIs</h4>
@@ -374,7 +371,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Gestión_de_Proyectos-FACEN.webp" alt="Introducción a la Gestión de Proyectos" loading="lazy" width="1755" height="1241" decoding="async">
+                    <img src="assets/img/certificados/Gestión_de_Proyectos-FACEN.thumb.webp" alt="Introducción a la Gestión de Proyectos" loading="lazy" width="1755" height="1241" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Introducción a la Gestión de Proyectos</h4>
@@ -388,7 +385,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/metaverso_FPUNA.webp" alt="Metaverso" loading="lazy" width="2244" height="1586" decoding="async">
+                    <img src="assets/img/certificados/metaverso_FPUNA.thumb.webp" alt="Metaverso" loading="lazy" width="2244" height="1586" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Metaverso</h4>
@@ -402,7 +399,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.webp" alt="Curso Profesional de JavaScript" loading="lazy" width="1755" height="1240" decoding="async">
+                    <img src="assets/img/certificados/Curso_Profesional_de_JavaScript_Codigo_Facilito.thumb.webp" alt="Curso Profesional de JavaScript" loading="lazy" width="1755" height="1240" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Curso Profesional de JavaScript</h4>
@@ -416,7 +413,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.webp" alt="Diseño Web Bootstrap" loading="lazy" width="3300" height="2550" decoding="async">
+                    <img src="assets/img/certificados/DISEÑO_WEB_BOOTSTRAP.thumb.webp" alt="Diseño Web Bootstrap" loading="lazy" width="3300" height="2550" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Diseño Web Bootstrap</h4>
@@ -430,7 +427,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/HTML_5.webp" alt="HTML 5" loading="lazy" width="3300" height="2550" decoding="async">
+                    <img src="assets/img/certificados/HTML_5.thumb.webp" alt="HTML 5" loading="lazy" width="3300" height="2550" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>HTML 5</h4>
@@ -444,7 +441,7 @@
 
                 <article class="cert-card">
                   <div class="cert-thumb">
-                    <img src="assets/img/certificados/MARKETING_DIGITAL_Y_COMERCIO_ELECTRONICO.webp" alt="Marketing Digital y Comercio Electrónico" loading="lazy" width="1650" height="1275" decoding="async">
+                    <img src="assets/img/certificados/MARKETING_DIGITAL_Y_COMERCIO_ELECTRONICO.thumb.webp" alt="Marketing Digital y Comercio Electrónico" loading="lazy" width="1650" height="1275" decoding="async">
                   </div>
                   <div class="cert-content-info">
                     <h4>Marketing Digital y Comercio Electrónico</h4>
@@ -457,7 +454,7 @@
                 </article>
 
               </div>
-              <button class="carousel-btn next" id="certNext" aria-label="Siguiente"><img src="assets/img/icono-der.png" alt="" width="44" height="44" decoding="async"></button>
+              <button class="carousel-btn next" id="certNext" aria-label="Siguiente"><img src="assets/img/icono-der.webp" alt="" width="44" height="44" decoding="async"></button>
             </div>
             <div class="carousel-dots" id="certDots" role="group" aria-label="Paginación de certificaciones"></div>
           </div>
@@ -468,13 +465,13 @@
       <section id="proyectos" class="proyectos">
         <h2 class="section-title"><span class="title-row"><svg class="title-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 2a2 2 0 0 0-2 2v2H3a3 3 0 0 0-3 3v3c3.2 1.6 6.5 2.4 10 2.6V12h4v2.6c3.5-.2 6.8-1 10-2.6V9a3 3 0 0 0-3-3h-3V4a2 2 0 0 0-2-2H8Zm1 4V5h6v1H9Z"/><path d="M0 14.2V21a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3v-6.8a29 29 0 0 1-10 2.4V19h-4v-2.4a29 29 0 0 1-10-2.4Z"/></svg>Proyectos</span></h2>
         <div class="carousel-wrap proyectos-carousel-wrap">
-          <button class="carousel-btn prev" id="proyPrev" aria-label="Anterior"><img src="assets/img/icono-izq.png" alt="" width="44" height="44" decoding="async"></button>
+          <button class="carousel-btn prev" id="proyPrev" aria-label="Anterior"><img src="assets/img/icono-izq.webp" alt="" width="44" height="44" decoding="async"></button>
           <div class="carousel-track proyectos-track" id="proyTrack" tabindex="0" role="region" aria-label="Proyectos: usá las flechas para navegar">
 
             <!-- PROYECTO 1 -->
             <article class="proyecto-card">
               <div class="proyecto-thumb">
-                <img src="assets/img/proyectos/apy.jpg" alt="APY1 – Bachillerato Técnico" loading="lazy" width="1911" height="1018" decoding="async">
+                <img src="assets/img/proyectos/apy.thumb.webp" alt="APY1 – Bachillerato Técnico" loading="lazy" width="1911" height="1018" decoding="async">
               </div>
               <div class="proyecto-content-info">
                 <h3>Cursos APY</h3>
@@ -502,7 +499,7 @@
             <!-- PROYECTO 2 -->
             <article class="proyecto-card">
               <div class="proyecto-thumb">
-                <img src="assets/img/proyectos/etech-web.jpg" alt="etech — Tienda de tecnología" loading="lazy" width="1917" height="1019" decoding="async">
+                <img src="assets/img/proyectos/etech-web.thumb.webp" alt="etech — Tienda de tecnología" loading="lazy" width="1917" height="1019" decoding="async">
               </div>
               <div class="proyecto-content-info">
                 <h3>etech — Tienda de tecnología</h3>
@@ -531,7 +528,7 @@
             <!-- PROYECTO 3 -->
             <article class="proyecto-card">
               <div class="proyecto-thumb">
-                <img src="assets/img/proyectos/etech-java.jpg" alt="eTech — Gestor de Inventario" loading="lazy" width="1916" height="1014" decoding="async">
+                <img src="assets/img/proyectos/etech-java.thumb.webp" alt="eTech — Gestor de Inventario" loading="lazy" width="1916" height="1014" decoding="async">
               </div>
               <div class="proyecto-content-info">
                 <h3>eTech — Gestor de Inventario</h3>
@@ -556,7 +553,7 @@
             <!-- PROYECTO 5 -->
             <article class="proyecto-card">
               <div class="proyecto-thumb">
-                <img src="assets/img/proyectos/unit.jpg" alt="uniT — Gestor Académico" loading="lazy" width="1916" height="1020" decoding="async">
+                <img src="assets/img/proyectos/unit.thumb.webp" alt="uniT — Gestor Académico" loading="lazy" width="1916" height="1020" decoding="async">
               </div>
               <div class="proyecto-content-info">
                 <h3>uniT — Gestor Académico</h3>
@@ -586,7 +583,7 @@
             <!-- PROYECTO 6 -->
             <article class="proyecto-card">
               <div class="proyecto-thumb">
-                <img src="assets/img/proyectos/ticket.jpg" alt="TicketTec" loading="lazy" width="1914" height="1015" decoding="async">
+                <img src="assets/img/proyectos/ticket.thumb.webp" alt="TicketTec" loading="lazy" width="1914" height="1015" decoding="async">
               </div>
               <div class="proyecto-content-info">
                 <h3>Ticket</h3>
@@ -611,7 +608,7 @@
             </article>
 
           </div>
-          <button class="carousel-btn next" id="proyNext" aria-label="Siguiente"><img src="assets/img/icono-der.png" alt="" width="44" height="44" decoding="async"></button>
+          <button class="carousel-btn next" id="proyNext" aria-label="Siguiente"><img src="assets/img/icono-der.webp" alt="" width="44" height="44" decoding="async"></button>
         </div>
         <div class="carousel-dots proyectos-dots" id="proyDots" role="group" aria-label="Paginación de proyectos"></div>
       </section>
@@ -628,7 +625,7 @@
           </div>
           <div class="sobre-fotos">
             <div class="foto-principal">
-              <img src="assets/img/sobremi2.png" alt="Eduardo" width="1173" height="1177" loading="lazy" decoding="async">
+              <img src="assets/img/sobremi2.webp" alt="Eduardo" width="1173" height="1177" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -642,7 +639,7 @@
       <div class="footer-bg-clip" aria-hidden="true"></div>
 
       <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
-        <img src="assets/img/icono-arriba.png" alt="" width="54" height="54" decoding="async">
+        <img src="assets/img/icono-arriba.webp" alt="" width="54" height="54" decoding="async">
       </button>
       <div class="footer-grid">
 
@@ -724,7 +721,7 @@
 
     <!-- ================= VISOR DE CERTIFICADOS Y DEMOS ================= -->
     <dialog class="cert-modal" id="certModal" aria-labelledby="modalTitle">
-      <button type="button" class="cert-modal-close" id="certModalClose" aria-label="Cerrar visor" autofocus><img src="assets/img/boton-x.png" alt="" width="44" height="44" decoding="async"></button>
+      <button type="button" class="cert-modal-close" id="certModalClose" aria-label="Cerrar visor" autofocus><img src="assets/img/boton-x.webp" alt="" width="44" height="44" decoding="async"></button>
       <div class="cert-modal-content">
         <h2 id="modalTitle" class="sr-only">Vista previa</h2>
         <div class="modal-layout">

@@ -14,13 +14,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && nav.classList.contains('open')) { closeMenu(); toggle.focus(); }
   });
   window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
-  const loaderTemplate = document.querySelector('#pageLoader picture');
+  const loaderTemplate = document.querySelector('#pageLoader video');
+  const animationTimers = new WeakMap();
+  function scheduleAnimation(container) {
+    animationTimers.set(container, setTimeout(() => {
+      if (!container.closest('.is-loading') || container.querySelector('.loading-animation')) return;
+      const animation = document.createElement('span');
+      animation.className = 'loading-animation';
+      animation.setAttribute('aria-hidden', 'true');
+      const video = loaderTemplate.cloneNode(true);
+      video.removeAttribute('src');
+      animation.append(video);
+      container.prepend(animation);
+      window.portfolioLoading.start(video);
+    }, 350));
+  }
+  const animationObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      animationObserver.unobserve(entry.target);
+      scheduleAnimation(entry.target);
+    }
+  }) : null;
   function addLoadingAnimation(container) {
-    if (!loaderTemplate || container.querySelector('.loading-animation')) return;
-    const animation = loaderTemplate.cloneNode(true);
-    animation.className = 'loading-animation';
-    animation.setAttribute('aria-hidden', 'true');
-    container.prepend(animation);
+    if (!loaderTemplate || window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        window.navigator?.connection?.saveData) return;
+    if (animationObserver) animationObserver.observe(container);
+    else scheduleAnimation(container);
+  }
+  function removeLoadingAnimation(container) {
+    animationObserver?.unobserve(container);
+    clearTimeout(animationTimers.get(container));
+    const animation = container.querySelector('.loading-animation');
+    if (animation) {
+      window.portfolioLoading.stop(animation.querySelector('video'));
+      animation.remove();
+    }
   }
   document.querySelectorAll('.cert-thumb, .proyecto-thumb, .foto-principal, .hero-illustration').forEach(frame => {
     const img = frame.querySelector('img');
@@ -37,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const failed = img.naturalWidth === 0;
       frame.classList.toggle('image-failed', failed);
       message.textContent = failed ? 'Vista previa no disponible' : '';
-      label.querySelector('.loading-animation')?.remove();
+      removeLoadingAnimation(label);
     };
     img.addEventListener('load', settle);
     img.addEventListener('error', settle);
@@ -61,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = slot.querySelector('video');
     if (video) { video.pause(); video.removeAttribute('src'); video.load(); }
     slot.replaceChildren();
-    modal.querySelector('.loading-animation')?.remove();
+    removeLoadingAnimation(status.parentElement);
   }
   function load() {
     clear();
@@ -78,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(timer);
       modal.setAttribute('aria-busy', 'false');
       modal.classList.remove('is-loading');
-      modal.querySelector('.loading-animation')?.remove();
+      removeLoadingAnimation(status.parentElement);
       status.textContent = 'No se pudo cargar el archivo. Comprobá tu conexión y volvé a intentar.';
       retry.hidden = false;
     };
@@ -87,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(timer);
       modal.setAttribute('aria-busy', 'false');
       modal.classList.remove('is-loading');
-      modal.querySelector('.loading-animation')?.remove();
+      removeLoadingAnimation(status.parentElement);
       media.hidden = false;
       status.textContent = '';
       retry.hidden = true;

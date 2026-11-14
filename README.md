@@ -32,7 +32,7 @@ Abrí `http://localhost:8000`. El servidor de Python no aplica las cabeceras de 
 - Imágenes WebP con dimensiones reservadas y portada adaptada con `picture`.
 - Esqueletos y mensajes de error en miniaturas, sin bloquear el contenido.
 - Demos MP4 sin controles visibles, con reproducción automática sin sonido y en bucle, cargadas solo al abrir el visor.
-- Pantalla de carga adaptada a computadora y celular: aparece tras 180 ms si la página todavía está cargando y se oculta al terminar, con Escape o después de un máximo de 10 segundos. Las imágenes con carga diferida siguen cargándose al acercarse a la pantalla.
+- Pantalla de carga adaptada a computadora y celular: aparece tras 180 ms si la imagen principal todavía está cargando y se oculta al estar lista, con Escape o después de un máximo de 1,5 segundos. Las imágenes con carga diferida siguen cargándose al acercarse a la pantalla.
 - Visor `dialog`: carga, error, reintento, Escape, foco y liberación del video al cerrar.
 - Carruseles con controles, puntos sincronizados, teclado y botones desactivados en los extremos.
 - Tema recordado en el navegador y preferencia del sistema en la primera visita.
@@ -54,8 +54,10 @@ Referencias oficiales: [configuración de Vercel](https://vercel.com/docs/projec
 
 Editá `index.html`, `css/style.css`, `css/ux.css` y los scripts en `js/`. Conservá los identificadores de los controles. Al agregar una imagen o video, usá rutas locales; el build verifica que los archivos existan.
 
-El build incluye las imágenes referenciadas en ambas hojas de estilo, también los fondos responsive y las decoraciones. La comprobación valida esas rutas con mayúsculas y minúsculas exactas, además de los enlaces HTML. Los íconos de navegación usan nombres sin acentos: `icono-der.png`, `icono-izq.png` e `icono-arriba.png`.
+El build incluye las imágenes referenciadas en ambas hojas de estilo, también los fondos responsive y las decoraciones. La comprobación valida esas rutas con mayúsculas y minúsculas exactas, además de los enlaces HTML. Los íconos de navegación usan nombres sin acentos: `icono-der.webp`, `icono-izq.webp` e `icono-arriba.webp`.
 
 Los originales se conservan en `assets/img`. Para repetir la conversión de las imágenes principales y los GIF, instalá Pillow e imageio-ffmpeg en un entorno Python y ejecutá `python scripts/prepare-media.py`. No son dependencias del sitio ni del build de Vercel.
 
-Las animaciones de carga se generan como WebP desde `gif-cargando.gif` y `gif-cargando-reponsive.gif` con `python scripts/prepare-loaders.py` (usa imageio-ffmpeg). Los GIF originales se conservan localmente y quedan fuera de Git y del sitio publicado. Para comprobar el comportamiento de la pantalla de carga: `node --test scripts/loader.test.mjs`.
+Los fondos e íconos usan versiones WebP comprimidas y las tarjetas usan miniaturas de 640 px; los certificados completos se descargan al abrir el visor. Para regenerar estos archivos y las animaciones MP4, ejecutá `python scripts/optimize-assets.py` con Pillow e imageio-ffmpeg instalados. Los originales PNG/GIF se conservan; el build solo publica los archivos usados.
+
+Las animaciones MP4 conservan el diseño original y solo se descargan si la espera lo requiere. En miniaturas y visores esperan 350 ms y solo se inician al estar visibles. Al terminar se detienen y liberan su recurso. Con ahorro de datos o movimiento reducido se usa el indicador simple sin descargar la animación. Para comprobar estos comportamientos: `node --test scripts/loader.test.mjs scripts/security.test.mjs`.

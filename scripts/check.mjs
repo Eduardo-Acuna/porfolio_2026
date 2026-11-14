@@ -47,6 +47,14 @@ for (const match of html.matchAll(/(?:src|href|poster|data-demo-video)="([^"#]+)
 for (const match of html.matchAll(/srcset="([^"]+)"/g)) {
   for (const item of match[1].split(',')) assert(files.includes(`dist/${item.trim().split(/\s+/)[0]}`), 'Missing picture source');
 }
+// Carousels must not download full certificates or large screenshots as previews.
+const previews = [...html.matchAll(/<img\b[^>]*src="(assets\/img\/(?:certificados|proyectos)\/[^\"]+)"/g)];
+assert.equal(previews.length, 25);
+for (const [, preview] of previews) {
+  assert(preview.endsWith('.thumb.webp'), `Use a thumbnail in the carousel: ${preview}`);
+  assert((await stat(`dist/${preview}`)).size < 100_000, `Preview exceeds 100 KB: ${preview}`);
+}
+assert(!/gif-cargando[^"\s]*\.webp/.test(html), 'Do not restore heavyweight animated loaders');
 for (const stylesheet of ['css/style.css', 'css/ux.css']) {
   const css = await readFile(`dist/${stylesheet}`, 'utf8');
   for (const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) {
@@ -57,7 +65,7 @@ for (const stylesheet of ['css/style.css', 'css/ux.css']) {
   }
 }
 const videos = files.filter(file => file.endsWith('.mp4'));
-assert.equal(videos.length, 5);
+assert.equal(videos.filter(file => file.startsWith('dist/assets/img/proyectos/')).length, 5);
 for (const video of videos) {
   const data = await readFile(video);
   assert.equal(data.toString('ascii', 4, 8), 'ftyp', `Invalid MP4: ${video}`);
@@ -77,4 +85,4 @@ for (const match of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) {
   assert(/rel="[^"]*\bnoopener\b/.test(match[0]), 'External tab without noopener');
 }
 const size = (await Promise.all(files.map(async file => (await stat(file)).size))).reduce((a,b) => a+b,0);
-console.log(`Checks OK: ${ids.length} unique IDs; all local links and public assets exist; ${videos.length} MP4 demos; JS syntax and security configuration valid. Public size: ${(size / 1e6).toFixed(2)} MB.`);
+console.log(`Checks OK: ${ids.length} unique IDs; all local links and public assets exist; ${videos.length} MP4 files; JS syntax and security configuration valid. Public size: ${(size / 1e6).toFixed(2)} MB.`);

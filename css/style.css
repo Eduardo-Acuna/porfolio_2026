@@ -445,13 +445,13 @@ html {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background: #000000 url('../assets/img/fondo-inicio-computadora-1920x1080.png') center / cover no-repeat;
+  background: #000000 url('../assets/img/fondo-inicio-computadora-1920x1080.webp') center / cover no-repeat;
 }
 
 .hero-card {
   max-width: var(--max-w);
   margin: 0 auto;
-  background: var(--hero-card-bg) url('../assets/img/fondo-dentro.png') center / cover no-repeat;
+  background: var(--hero-card-bg) url('../assets/img/fondo-dentro.webp') center / cover no-repeat;
   background-blend-mode: multiply;
   backdrop-filter: blur(6px);
   border: var(--border);
@@ -601,7 +601,7 @@ html {
   }
 
   .hero-bg {
-    background-image: url('../assets/img/fondo-inicio-celular-1080x1920.png');
+    background-image: url('../assets/img/fondo-inicio-celular-1080x1920.webp');
     background-position: center;
   }
 
@@ -703,15 +703,15 @@ html {
 }
 
 .skills-card {
-  background-image: url('../assets/img/fondo-cer-1.png');
+  background-image: url('../assets/img/fondo-cer-1.webp');
 }
 
 .education-card {
-  background-image: url('../assets/img/fondo-cer-2.png');
+  background-image: url('../assets/img/fondo-cer-2.webp');
 }
 
 .cert-block-wrap.card-container {
-  background-image: url('../assets/img/fondo-cer-3.png');
+  background-image: url('../assets/img/fondo-cer-3.webp');
 }
 
 .skills-card, .education-card, .cert-block-wrap.card-container {
@@ -1737,7 +1737,7 @@ html {
   overflow: hidden;
   pointer-events: none;
   border-radius: 50% 50% 0 0 / 40px 40px 0 0;
-  background: #000 url('../assets/img/footer-fondo-computadora-1920x360.png') center top / cover no-repeat;
+  background: #000 url('../assets/img/footer-fondo-computadora-1920x360.webp') center top / cover no-repeat;
 }
 
 .footer-grid, .scroll-top {
@@ -1969,7 +1969,7 @@ html {
 
 @media (max-width: 700px) {
   .footer-bg-clip {
-    background-image: url('../assets/img/footer-fondo-celular-800x800.png');
+    background-image: url('../assets/img/footer-fondo-celular-800x800.webp');
     border-radius: 50% 50% 0 0 / 22px 22px 0 0;
   }
 
