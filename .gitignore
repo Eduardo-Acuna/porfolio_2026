@@ -7,6 +7,7 @@ node_modules/
 !.env.example
 __pycache__/
 assets/img/proyectos/*.gif
+assets/img/gif-cargando*.gif
 .aws/
 .codex/
 .agents/

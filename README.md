@@ -31,7 +31,8 @@ Abrí `http://localhost:8000`. El servidor de Python no aplica las cabeceras de 
 
 - Imágenes WebP con dimensiones reservadas y portada adaptada con `picture`.
 - Esqueletos y mensajes de error en miniaturas, sin bloquear el contenido.
-- Demos MP4 con controles, reproducción automática sin sonido y en bucle, cargadas solo al abrir el visor.
+- Demos MP4 sin controles visibles, con reproducción automática sin sonido y en bucle, cargadas solo al abrir el visor.
+- Pantalla de carga adaptada a computadora y celular: aparece tras 180 ms si la página todavía está cargando y se oculta al terminar, con Escape o después de un máximo de 10 segundos. Las imágenes con carga diferida siguen cargándose al acercarse a la pantalla.
 - Visor `dialog`: carga, error, reintento, Escape, foco y liberación del video al cerrar.
 - Carruseles con controles, puntos sincronizados, teclado y botones desactivados en los extremos.
 - Tema recordado en el navegador y preferencia del sistema en la primera visita.
@@ -56,3 +57,5 @@ Editá `index.html`, `css/style.css`, `css/ux.css` y los scripts en `js/`. Conse
 El build incluye las imágenes referenciadas en ambas hojas de estilo, también los fondos responsive y las decoraciones. La comprobación valida esas rutas con mayúsculas y minúsculas exactas, además de los enlaces HTML. Los íconos de navegación usan nombres sin acentos: `icono-der.png`, `icono-izq.png` e `icono-arriba.png`.
 
 Los originales se conservan en `assets/img`. Para repetir la conversión de las imágenes principales y los GIF, instalá Pillow e imageio-ffmpeg en un entorno Python y ejecutá `python scripts/prepare-media.py`. No son dependencias del sitio ni del build de Vercel.
+
+Las animaciones de carga se generan como WebP desde `gif-cargando.gif` y `gif-cargando-reponsive.gif` con `python scripts/prepare-loaders.py` (usa imageio-ffmpeg). Los GIF originales se conservan localmente y quedan fuera de Git y del sitio publicado. Para comprobar el comportamiento de la pantalla de carga: `node --test scripts/loader.test.mjs`.

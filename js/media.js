@@ -14,27 +14,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && nav.classList.contains('open')) { closeMenu(); toggle.focus(); }
   });
   window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
-  document.querySelectorAll('.cert-thumb, .proyecto-thumb').forEach(frame => {
+  const loaderTemplate = document.querySelector('#pageLoader picture');
+  function addLoadingAnimation(container) {
+    if (!loaderTemplate || container.querySelector('.loading-animation')) return;
+    const animation = loaderTemplate.cloneNode(true);
+    animation.className = 'loading-animation';
+    animation.setAttribute('aria-hidden', 'true');
+    container.prepend(animation);
+  }
+  document.querySelectorAll('.cert-thumb, .proyecto-thumb, .foto-principal, .hero-illustration').forEach(frame => {
     const img = frame.querySelector('img');
     if (!img) return;
     const label = document.createElement('span');
     label.className = 'image-status';
-    label.textContent = 'Cargando imagen…';
+    const message = document.createElement('span');
+    message.className = 'image-status-text';
+    message.textContent = 'Cargando imagen…';
+    label.append(message);
     frame.append(label);
     const settle = () => {
       frame.classList.remove('is-loading');
       const failed = img.naturalWidth === 0;
       frame.classList.toggle('image-failed', failed);
-      label.textContent = failed ? 'Vista previa no disponible' : '';
+      message.textContent = failed ? 'Vista previa no disponible' : '';
+      label.querySelector('.loading-animation')?.remove();
     };
     img.addEventListener('load', settle);
     img.addEventListener('error', settle);
-    if (img.complete) settle(); else frame.classList.add('is-loading');
+    if (img.complete) settle(); else {
+      frame.classList.add('is-loading');
+      addLoadingAnimation(label);
+    }
   });
   const modal = document.getElementById('certModal');
   const slot = document.getElementById('modalMedia');
   const status = document.getElementById('modalStatus');
   const retry = document.getElementById('modalRetry');
+  const details = document.getElementById('demoDetails');
+  const demoTitle = document.getElementById('demoTitle');
+  const demoDescription = document.getElementById('demoDescription');
+  const demoTech = document.getElementById('demoTech');
   let current, opener, timer, generation = 0;
   function clear() {
     generation++;
@@ -42,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = slot.querySelector('video');
     if (video) { video.pause(); video.removeAttribute('src'); video.load(); }
     slot.replaceChildren();
+    modal.querySelector('.loading-animation')?.remove();
   }
   function load() {
     clear();
@@ -49,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     retry.hidden = true;
     modal.setAttribute('aria-busy', 'true');
     modal.classList.add('is-loading');
+    addLoadingAnimation(status.parentElement);
     status.textContent = current.video ? 'Cargando demo…' : 'Cargando certificado…';
     const media = document.createElement(current.video ? 'video' : 'img');
     media.hidden = true;
@@ -57,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(timer);
       modal.setAttribute('aria-busy', 'false');
       modal.classList.remove('is-loading');
+      modal.querySelector('.loading-animation')?.remove();
       status.textContent = 'No se pudo cargar el archivo. Comprobá tu conexión y volvé a intentar.';
       retry.hidden = false;
     };
@@ -65,18 +87,24 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(timer);
       modal.setAttribute('aria-busy', 'false');
       modal.classList.remove('is-loading');
+      modal.querySelector('.loading-animation')?.remove();
       media.hidden = false;
       status.textContent = '';
       retry.hidden = true;
       if (current.video) media.play().catch(() => {
-        // Keep native controls available when the browser blocks autoplay.
+        failed();
+        status.textContent = 'El navegador bloqueó la reproducción. Tocá Reintentar para iniciar la demo.';
       });
     }, {once:true});
     media.addEventListener('error', failed, {once:true});
     if (current.video) {
-      media.controls = true;
+      media.controls = false;
+      media.disablePictureInPicture = true;
+      media.disableRemotePlayback = true;
+      media.tabIndex = -1;
       media.autoplay = true;
       media.muted = true;
+      media.defaultMuted = true;
       media.loop = true;
       media.playsInline = true;
       media.preload = 'auto';
@@ -98,6 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
       opener = link;
       current = {video, url:url.href, title:video ? `Demo de ${link.closest('article').querySelector('h3').textContent}` : link.closest('.cert-card').querySelector('img').alt};
       document.getElementById('modalTitle').textContent = current.title;
+      modal.classList.toggle('is-demo', video);
+      details.hidden = !video;
+      demoTech.replaceChildren();
+      if (video) {
+        const project = link.closest('.proyecto-card');
+        demoTitle.textContent = project.querySelector('h3').textContent;
+        demoDescription.textContent = project.querySelector('.proyecto-desc').textContent;
+        demoTech.replaceChildren(...[...project.querySelectorAll('.proyecto-tech > li')].map(tag => tag.cloneNode(true)));
+      }
       modal.showModal();
       document.body.classList.add('modal-open');
       load();
@@ -110,5 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const r = modal.getBoundingClientRect();
     if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) modal.close();
   });
-  modal.addEventListener('close', () => { clear(); document.body.classList.remove('modal-open'); opener?.focus(); });
+  modal.addEventListener('close', () => {
+    clear();
+    modal.classList.remove('is-demo', 'is-loading');
+    modal.setAttribute('aria-busy', 'false');
+    details.hidden = true;
+    demoTitle.textContent = '';
+    demoDescription.textContent = '';
+    demoTech.replaceChildren();
+    document.body.classList.remove('modal-open');
+    opener?.focus();
+  });
 });
